@@ -24,7 +24,7 @@ run_install() {
     local logfile="/tmp/install_${sname}_${version}.log"
     info "Installing $sname $version ..."
     cd "$INSTALL_DIR"
-    bash install_soft.sh "$type" "$type" "$sname" "$version" > "$logfile" 2>&1 &
+    bash install_soft.sh "$type" "install" "$sname" "$version" > "$logfile" 2>&1 &
     local pid=$!
     local dots=0
     while kill -0 $pid 2>/dev/null; do

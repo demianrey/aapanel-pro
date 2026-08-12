@@ -13,22 +13,14 @@ PANEL_DIR="/www/server/panel"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Check aaPanel is installed
-[ -f "$PANEL_DIR/class/public.py" ] || error "aaPanel not found. Install it first: bash <(curl -s https://www.aapanel.com/script/install_7.0_en.sh)"
+# public.py is a single file in older versions and a package (class/public/) in aaPanel 7.x
+if [ ! -f "$PANEL_DIR/class/public.py" ] && [ ! -d "$PANEL_DIR/class/public" ] && [ ! -f "$PANEL_DIR/tools.py" ]; then
+    error "aaPanel not found. Install it first: bash <(curl -s https://www.aapanel.com/script/install_7.0_en.sh)"
+fi
 
 # Apply pro patches
 info "Applying pro patches..."
 bash "$SCRIPT_DIR/patch.sh"
-
-# Install plugin directories
-info "Installing plugin directories..."
-if [ -d "$SCRIPT_DIR/plugin" ]; then
-    for p in "$SCRIPT_DIR/plugin"/*/; do
-        name=$(basename "$p")
-        dest="$PANEL_DIR/plugin/$name"
-        mkdir -p "$dest"
-        cp -rf "$p"* "$dest/" 2>/dev/null || true
-    done
-fi
 
 # Restart panel
 info "Restarting panel..."
