@@ -322,8 +322,12 @@ if [ ! -f "$PLUGIN_DIR/btapp/info.json" ]; then
     bash /tmp/bt_btapp_install.sh install 2>/dev/null && \
     cp -f "$PLUGIN_DIR/btapp/icon.png" "$PANEL_DIR/BTPanel/static/img/soft_ico/ico-btapp.png" 2>/dev/null || true
     [ -f "$PLUGIN_DIR/btapp/info.json" ] && info "  btapp installed." || warn "  btapp install failed."
-else
-    info "  btapp already installed."
+fi
+# Always overwrite btapp with our patched files (QR fix + version 1.2)
+if [ -f "$PLUGIN_DIR/btapp/info.json" ] && [ -d "$SCRIPT_DIR/plugin/btapp" ]; then
+    cp -f "$SCRIPT_DIR/plugin/btapp/info.json" "$PLUGIN_DIR/btapp/info.json"
+    cp -f "$SCRIPT_DIR/plugin/btapp/index.html" "$PLUGIN_DIR/btapp/index.html"
+    info "  btapp patched files applied (v1.2 + QR fix)."
 fi
 
 # btwaf — extract from CDN zip, use stub main module (zip's .so is for Python 3.7)
