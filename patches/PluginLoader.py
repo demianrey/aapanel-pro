@@ -44,15 +44,20 @@ def _load_real_so():
         if not os.path.exists(path):
             continue
         try:
-            # Use a private name so the .so doesn't stomp sys.modules['PluginLoader']
-            spec = importlib.util.spec_from_file_location('_PluginLoader_real', path)
+            # C extensions require the module name to match PyInit_<name>.
+            # The real SO exports PyInit_PluginLoader, so we must load it as
+            # 'PluginLoader'. After exec_module the SO registers itself in
+            # sys.modules['PluginLoader'], shadowing us — we restore our own
+            # module object immediately afterwards.
+            _self = sys.modules.get('PluginLoader')
+            spec = importlib.util.spec_from_file_location('PluginLoader', path)
             mod = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(mod)
-            # Remove from sys.modules to be safe — we never want the real SO
-            # to shadow our PluginLoader.py bypass
-            import sys as _sys
-            _sys.modules.pop('_PluginLoader_real', None)
-            _sys.modules.pop('PluginLoader', None)
+            # Restore our .py so future 'import PluginLoader' returns our bypass
+            if _self is not None:
+                sys.modules['PluginLoader'] = _self
+            else:
+                sys.modules.pop('PluginLoader', None)
             _real = mod
             return _real
         except Exception:
