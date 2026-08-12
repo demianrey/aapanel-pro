@@ -1,9 +1,9 @@
 {
-  "name": "btapp",
-  "title": "aaPanel Mobile",
-  "versions": "1.0",
-  "ps": "Managed by aaPanel",
-  "author": "aaPanel",
-  "home": "https://www.aapanel.com",
-  "setup_path": "/www/server/panel/plugin/btapp"
+	"title": "aaPanel Mobile",
+	"name": "btapp",
+	"ps": "Easily manage your server anytime, anywhere via mobile",
+	"versions": "1.2",
+	"checks": "/www/server/panel/plugin/btapp",
+	"author": "official",
+	"home": "https://www.aapanel.com"
 }

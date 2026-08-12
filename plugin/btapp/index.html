@@ -1,5 +1,209 @@
-<div style="padding:30px;font-family:Arial,sans-serif;">
-  <h3 style="color:#20a53a;">aaPanel Mobile</h3>
-  <p style="color:#666;">This plugin is managed via the system daemon.<br>
-  Use the panel sidebar or the plugin API to configure it.</p>
-</div>
+<style>
+    /*样式写这里*/
+    .demo-table table tbody tr td span{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width:580px;
+        display:block;
+    }
+    .ssh-list-list span.glyphicon {
+        color: #666;
+        margin-right: 10px;
+        font-size: 18px;
+    }
+    .ssh-list-list span.glyphicon-folder-open {
+        color: #edca5c;
+    }
+    #ymlist{
+        height: 136px;
+    }
+    
+</style>
+<div class="bt-form plugin-window"></div>
+
+<!--JS脚本部分，不要将JS脚本写在其它地方-->
+<script type="text/javascript">
+
+    //定义窗口尺寸
+    $('.layui-layer-page').css({ 'width': '600px' });
+
+    //左测菜单切换效果
+    $(".bt-w-menu p").click(function () {
+        $(this).addClass('bgw').siblings().removeClass('bgw')
+    });
+
+    /**
+     * 获取绑定状态
+     * @param bind_token string 绑定token
+     * @return void
+     */
+    function get_bind_status(bind_token){
+        if($(".bind_app_qrcode").attr('id') !== 'verify_qrcode'){
+            return;
+        }
+        $.post('/api?action=get_bind_status',{bind_token:bind_token},function(rdata){
+            if(rdata.status === 1){
+                add_bind_app(rdata);
+                return
+            }
+            setTimeout(function(){
+                get_bind_status(bind_token);
+            },1000);
+        });
+    }
+
+    /**
+     * 确认授权
+     * @param bind_info array 绑定信息
+     * @return void 
+     */
+    function add_bind_app(bind_info){
+        layer.confirm('The device ['+bind_info.brand + '' + bind_info.model+'] requests the binding panel, are you sure to allow binding?<br><span style="color:red;">After confirming the authorization, the device will get all control rights of the panel!</span>',{
+            btn:['Allow','Cancel'],
+            icon:3,
+            closeBtn: 2,
+            title:'Allow device binding'
+        },function(){
+            $.post('/api?action=add_bind_app',{bind_token:bind_info.token},function(rdata){
+                if(rdata.status === true){
+                    open_btapp();
+                }
+                bt.msg(rdata);
+            });
+        });
+    }
+
+    /**
+     * 删除绑定
+     * @param bind_token string 绑定token
+     * @return void
+     */
+    function remove_bind_app(bind_token){
+        var loadT = bt.load('Deleting binding...');
+        $.post('/api?action=remove_bind_app',{bind_app:bind_token},function(rdata){
+            loadT.close();
+            bt.msg(rdata);
+            if(rdata.status === true){
+                open_btapp();
+            }
+        });
+    }
+
+    /**
+     * 获取绑定信息
+     * @return void
+     */
+    function open_btapp(){
+        var loadT = layer.msg('Getting interface information...', { icon: 16, time: 0, shade: [0.3, '#000'] });
+        $.post('/config?action=get_token', {}, function (rdata) {
+            layer.close(loadT);
+            if(rdata.open === false){
+                layer.closeAll();
+                layer.msg('Please enable [API] in the [Settings] first!');
+                return;
+            }
+
+            if(rdata.apps === undefined){
+                layer.closeAll();
+                layer.msg('The current panel version is not supported, please upgrade the panel to the latest version!')
+                return;
+            }
+            var bind_body = '';
+            for(var i=0;i<rdata.apps.length;i++){
+                bind_body += '<tr>\
+                                <td>'+rdata.apps[i].brand + ' ' + rdata.apps[i].model +'</td>\
+                                <td>'+bt.format_data(parseInt(rdata.apps[i].time))+'</td>\
+                                <td style="text-align: right;"><a class="btlink" onclick="remove_bind_app(\''+rdata.apps[i].token+'\')">Del</a></td>\
+                            </tr>';
+            }
+           var sbody = '<div class="bt-form bt-form" style="padding:15px 25px">\
+                            <div class="row">\
+                            <div id="verify_qrcode" class="bind_app_qrcode" style="margin:0 15px 15px;float:left"></div>\
+                            <div class="btapp-info" style="line-height:23px">\
+                                <p>Step 1:<a class="btlink" href="https://www.aapanel.com/app.html" target="_blank" style="font-size:14px;"><b> Download APP</b></a></p>\
+                                <p>Step 2: Scan the qrcode on APP and allow on the panel</p>\
+                                <p>In order to ensure performance, up to 5 devices are allowed</p>\
+                                <p style="color:red;">Note: Make sure that [API] is turned on, otherwise the APP cannot connect!</p>\
+                                <p><a class="btlink" href="https://forum.aapanel.com/d/3527-aapanel-mobile" target="_blank">Click for HELP</a></p>\
+                            </div>\
+                            </div>\
+                            <div class="divtable">\
+                                <table class="table table-hover">\
+                                    <thead>\
+                                        <tr>\
+                                            <th>Device</th>\
+                                            <th>Binding time</th>\
+                                            <th style="text-align: right;">OPT</th>\
+                                        </tr>\
+                                    </thead>\
+                                    <tbody>' + bind_body + '</tbody>\
+                                </table>\
+                            </div>\
+                        </div>'
+                
+            $(".plugin-window").html(sbody);
+            function renderQr(qrdata, bind_token) {
+                if (typeof jQuery.fn.qrcode === 'function') {
+                    jQuery('#verify_qrcode').qrcode({render:'canvas',text:qrdata,height:150,width:150});
+                    get_bind_status(bind_token);
+                } else {
+                    var s = document.createElement('script');
+                    s.src = '/static/js/jquery.qrcode.min.js';
+                    s.onload = function(){
+                        jQuery('#verify_qrcode').qrcode({render:'canvas',text:qrdata,height:150,width:150});
+                        get_bind_status(bind_token);
+                    };
+                    document.head.appendChild(s);
+                }
+            }
+            setTimeout(function(){
+                if(rdata.open === true){
+                    renderQr(rdata.qrcode, rdata.bind.token);
+                }
+            },200);
+
+        });
+    }
+
+
+
+    /**
+     * 发送请求到插件
+     * 注意：除非你知道如何自己构造正确访问插件的ajax，否则建议您使用此方法与后端进行通信
+     * @param plugin_name    插件名称 如：demo
+     * @param function_name  要访问的方法名，如：get_logs
+     * @param args           传到插件方法中的参数 请传入数组，示例：{p:1,rows:10,callback:"demo.get_logs"}
+     * @param callback       请传入处理函数，响应内容将传入到第一个参数中
+     */
+    function request_plugin(plugin_name, function_name, args, callback, timeout) {
+        if (!timeout) timeout = 1000 * 1800;
+        var loadT = layer.msg('Processing...',{icon:16,shadeClose:false,shade:0.3,time:0});
+        $.ajax({
+            type:'POST',
+            url: '/plugin?action=a&s=' + function_name + '&name=' + plugin_name,
+            data: args,
+            timeout:timeout,
+            success: function(rdata) {
+                layer.close(loadT);
+                if (!callback) {
+                    layer.msg(rdata.msg, { icon: rdata.status ? 1 : 2 });
+                    return;
+                }
+                return callback(rdata);
+            },
+            error: function(ex) {
+                layer.close(loadT);
+                if (!callback) {
+                    layer.msg('Error found during request!', { icon: 2 });
+                    return;
+                }
+                return callback(ex);
+            }
+        });
+    }
+
+    //第一次打开窗口时调用
+    open_btapp();
+
+</script>
