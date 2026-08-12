@@ -291,7 +291,13 @@ if OLD not in content:
     OLD2 = "        return self.__install_plugin(pluginInfo['name'], get.get('version', ''))\n"
     if OLD2 in content:
         OLD = OLD2
-        NEW = NEW.replace("            _result", "        _result").replace("            if isinstance", "        if isinstance")
+        # Re-indent entire NEW block from 12-space base to 8-space base
+        new_lines = []
+        for _line in NEW.split('\n'):
+            if _line.startswith('            '):
+                _line = '        ' + _line[12:]
+            new_lines.append(_line)
+        NEW = '\n'.join(new_lines)
     else:
         print("  [!] Could not find install_sync return line in panel_plugin_v2.py — skipping.")
         sys.exit(0)
