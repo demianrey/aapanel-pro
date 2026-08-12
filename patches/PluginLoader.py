@@ -108,9 +108,13 @@ def get_module(filename):
     real = _load_real_so()
     if real and hasattr(real, 'get_module'):
         try:
-            return real.get_module(filename)
+            result = real.get_module(filename)
+            # Only return the real SO's result if it's an actual module, not an error dict
+            if result is not None and not isinstance(result, dict):
+                return result
         except Exception:
             pass
+    # Raw fallback — load directly without any auth check
     try:
         if not os.path.exists(filename):
             return None
@@ -120,10 +124,9 @@ def get_module(filename):
         if not spec:
             return None
         mod = importlib.util.module_from_spec(spec)
-        for p in ['class/', 'class_v2/']:
-            full = os.path.join(_PANEL_PATH, p)
-            if full not in sys.path:
-                sys.path.insert(0, full)
+        for p in ['/www/server/panel/class', '/www/server/panel/class_v2']:
+            if p not in sys.path:
+                sys.path.insert(0, p)
         spec.loader.exec_module(mod)
         return mod
     except Exception as e:
@@ -131,26 +134,43 @@ def get_module(filename):
 
 
 def plugin_run(plugin_name, def_name, args):
-    real = _load_real_so()
-    if real and hasattr(real, 'plugin_run'):
+    # Do NOT delegate to the real SO — it performs its own auth check against
+    # the encrypted plugin_bin.pl and returns "unpaid or authorization expired"
+    # for any plugin not covered by a real license.  Load the plugin directly.
+    plugin_dir = os.path.join(_PANEL_PATH, 'plugin', plugin_name)
+    candidates = [
+        # Standard naming convention: {name}_main.py with class {name}_main
+        (os.path.join(plugin_dir, '{}_main.py'.format(plugin_name)), '{}_main'.format(plugin_name)),
+        # Legacy: index.py with class main
+        (os.path.join(plugin_dir, 'index.py'), 'main'),
+        # Alternate: {name}.py with class {name}
+        (os.path.join(plugin_dir, '{}.py'.format(plugin_name)), plugin_name),
+    ]
+    for candidate, cls_name in candidates:
+        if not os.path.exists(candidate):
+            continue
         try:
-            return real.plugin_run(plugin_name, def_name, args)
+            mod = get_module(candidate)
+            if not mod or isinstance(mod, dict):
+                continue
+            cls = getattr(mod, cls_name, None)
+            if cls is None:
+                # Try any class in the module that has the method
+                for attr in dir(mod):
+                    obj_cls = getattr(mod, attr, None)
+                    if isinstance(obj_cls, type):
+                        cls = obj_cls
+                        break
+            if cls is None:
+                continue
+            obj = cls()
+            method = getattr(obj, def_name, None)
+            if method is None and hasattr(obj, '__getattr__'):
+                method = getattr(obj, def_name)
+            if method:
+                return method(args)
         except Exception:
             pass
-    try:
-        plugin_dir = os.path.join(_PANEL_PATH, 'plugin', plugin_name)
-        for candidate in [
-            os.path.join(plugin_dir, 'index.py'),
-            os.path.join(plugin_dir, '{}.py'.format(plugin_name)),
-        ]:
-            if os.path.exists(candidate):
-                mod = get_module(candidate)
-                if mod and not isinstance(mod, dict) and hasattr(mod, 'main'):
-                    obj = mod.main()
-                    if hasattr(obj, def_name):
-                        return getattr(obj, def_name)(args)
-    except Exception:
-        pass
     return None
 
 
