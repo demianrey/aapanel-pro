@@ -44,9 +44,15 @@ def _load_real_so():
         if not os.path.exists(path):
             continue
         try:
-            spec = importlib.util.spec_from_file_location('PluginLoader', path)
+            # Use a private name so the .so doesn't stomp sys.modules['PluginLoader']
+            spec = importlib.util.spec_from_file_location('_PluginLoader_real', path)
             mod = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(mod)
+            # Remove from sys.modules to be safe — we never want the real SO
+            # to shadow our PluginLoader.py bypass
+            import sys as _sys
+            _sys.modules.pop('_PluginLoader_real', None)
+            _sys.modules.pop('PluginLoader', None)
             _real = mod
             return _real
         except Exception:
