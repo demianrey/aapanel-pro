@@ -182,7 +182,8 @@ def plugin_run(plugin_name, def_name, args):
                 return method(args)
         except Exception:
             pass
-    return None
+    # Return an error dict (not None) so callers that do result.get(...) don't crash
+    return {'status': False, 'msg': 'plugin not found or load error: {}'.format(plugin_name)}
 
 
 def module_run(module_name, def_name, args):
