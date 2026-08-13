@@ -149,6 +149,10 @@ def plugin_run(plugin_name, def_name, args):
     # the encrypted plugin_bin.pl and returns "unpaid or authorization expired"
     # for any plugin not covered by a real license.  Load the plugin directly.
     plugin_dir = os.path.join(_PANEL_PATH, 'plugin', plugin_name)
+    # Add plugin dir to sys.path so local imports within the plugin work
+    # (e.g. mail_sys imports mail_server_init from its own directory)
+    if plugin_dir not in sys.path:
+        sys.path.insert(0, plugin_dir)
     candidates = [
         # Standard naming convention: {name}_main.py with class {name}_main
         (os.path.join(plugin_dir, '{}_main.py'.format(plugin_name)), '{}_main'.format(plugin_name)),
