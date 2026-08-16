@@ -360,6 +360,7 @@ if [ ! -f "$PLUGIN_DIR/monitor/info.json" ]; then
     if [ -d "$SCRIPT_DIR/plugin/monitor" ]; then
         mkdir -p "$PLUGIN_DIR/monitor"
         cp -f "$SCRIPT_DIR/plugin/monitor/"* "$PLUGIN_DIR/monitor/"
+        bash "$PLUGIN_DIR/monitor/install.sh" install 2>/dev/null || true
         info "  monitor stub installed."
     else
         warn "  monitor stub not found in repo."
