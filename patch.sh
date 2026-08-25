@@ -354,20 +354,26 @@ else
     info "  btwaf already installed."
 fi
 
-# monitor — use repo stub (no CDN install.sh available)
-if [ ! -f "$PLUGIN_DIR/monitor/info.json" ]; then
-    info "  Installing monitor stub..."
-    if [ -d "$SCRIPT_DIR/plugin/monitor" ]; then
-        mkdir -p "$PLUGIN_DIR/monitor"
-        cp -f "$SCRIPT_DIR/plugin/monitor/"* "$PLUGIN_DIR/monitor/"
-        bash "$PLUGIN_DIR/monitor/install.sh" install 2>/dev/null || true
-        info "  monitor stub installed."
-    else
-        warn "  monitor stub not found in repo."
+# Install all remaining plugin stubs from repo (skip ones already handled above)
+SKIP_PLUGINS="btapp btwaf"
+for stub_dir in "$SCRIPT_DIR/plugin"/*/; do
+    plugin_name=$(basename "$stub_dir")
+    # Skip plugins already installed via CDN above
+    if echo "$SKIP_PLUGINS" | grep -qw "$plugin_name"; then
+        continue
     fi
-else
-    info "  monitor already installed."
-fi
+    if [ ! -f "$PLUGIN_DIR/$plugin_name/info.json" ]; then
+        info "  Installing $plugin_name stub..."
+        mkdir -p "$PLUGIN_DIR/$plugin_name"
+        cp -rf "$stub_dir"* "$PLUGIN_DIR/$plugin_name/" 2>/dev/null || true
+        if [ -f "$PLUGIN_DIR/$plugin_name/install.sh" ]; then
+            bash "$PLUGIN_DIR/$plugin_name/install.sh" install 2>/dev/null || true
+        fi
+        info "  $plugin_name stub installed."
+    else
+        info "  $plugin_name already installed."
+    fi
+done
 
 # Clean temp dir
 rm -rf "$PANEL_DIR/temp/"* 2>/dev/null || true
