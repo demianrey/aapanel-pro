@@ -1,0 +1,15 @@
+{
+  "title": "Disk analysis",
+  "tip": "lib",
+  "name": "disk_analysis",
+  "type": "plugin",
+  "ps": "Quickly analyze disk/hard disk usage, find out large files/directories and clean them up conveniently",
+  "versions": "2.1",
+  "shell": "",
+  "checks": "",
+  "author": "aaPanel",
+  "home": "https://forum.aapanel.com/",
+  "date": "2022-11-14",
+  "default": false,
+  "display": 0
+}

@@ -1,0 +1,4572 @@
+<style>
+	.bg-bubbles {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 99;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		opacity: 0.8;
+	}
+
+	.bg-bubbles li {
+		position: absolute;
+		bottom: -10pc;
+		z-index: -1;
+		width: 40px;
+		height: 40px;
+		background-color: rgba(32, 165, 58, 0.08);
+		list-style: none;
+		transition-timing-function: linear;
+		animation: square 15s infinite;
+	}
+
+	.bg-bubbles li:nth-child(1) {
+		left: 10%;
+	}
+
+	.bg-bubbles li:nth-child(2) {
+		left: 20%;
+		width: 90px;
+		height: 90px;
+		animation-delay: 2s;
+		animation-duration: 7s;
+	}
+
+	.bg-bubbles li:nth-child(3) {
+		left: 25%;
+		animation-delay: 4s;
+	}
+
+	.bg-bubbles li:nth-child(4) {
+		left: 40%;
+		width: 60px;
+		height: 60px;
+		background-color: rgba(32, 165, 58, 0.02);
+		animation-duration: 8s;
+	}
+
+	.bg-bubbles li:nth-child(5) {
+		left: 70%;
+	}
+
+	.bg-bubbles li:nth-child(6) {
+		left: 80%;
+		width: 90pt;
+		height: 90pt;
+		background-color: rgba(32, 165, 58, 0.02);
+		animation-delay: 3s;
+	}
+
+	.bg-bubbles li:nth-child(7) {
+		left: 32%;
+		width: 10pc;
+		height: 10pc;
+		animation-delay: 2s;
+	}
+
+	.bg-bubbles li:nth-child(8) {
+		left: 55%;
+		width: 20px;
+		height: 20px;
+		animation-delay: 4s;
+		animation-duration: 15s;
+	}
+
+	.bg-bubbles li:nth-child(9) {
+		left: 25%;
+		width: 10px;
+		height: 10px;
+		background-color: rgba(32, 165, 58, 0.05);
+		animation-delay: 2s;
+		animation-duration: 12s;
+	}
+
+	.bg-bubbles li:nth-child(10) {
+		left: 85%;
+		width: 10pc;
+		height: 10pc;
+		animation-delay: 5s;
+	}
+
+	@keyframes square {
+		0% {
+			opacity: 0.5;
+			transform: translatey(0) rotate(45deg);
+		}
+
+		25% {
+			opacity: 0.75;
+			transform: translatey(-400px) rotate(90deg);
+		}
+
+		50% {
+			opacity: 1;
+			transform: translatey(-600px) rotate(135deg);
+		}
+
+		to {
+			opacity: 0;
+			transform: translatey(-1000px) rotate(180deg);
+		}
+	}
+
+	@-webkit-keyframes square {
+		0% {
+			opacity: 0.5;
+			-webkit-transform: translatey(0) rotate(45deg);
+		}
+
+		25% {
+			opacity: 0.75;
+			-webkit-transform: translatey(-400px) rotate(90deg);
+		}
+
+		50% {
+			opacity: 1;
+			-webkit-transform: translatey(-600px) rotate(135deg);
+		}
+
+		to {
+			opacity: 0;
+			-webkit-transform: translatey(-1000px) rotate(180deg);
+		}
+	}
+
+	@-webkit-keyframes removeLeft {
+		0% {
+			visibility: visible;
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+
+		to {
+			-webkit-transform: translateX(-350px);
+			transform: translateX(-350px);
+		}
+	}
+
+	@keyframes removeLeft {
+		0% {
+			visibility: visible;
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+
+		to {
+			-webkit-transform: translateX(-350px);
+			transform: translateX(-350px);
+		}
+	}
+
+	@-webkit-keyframes removeRight {
+		0% {
+			opacity: 0;
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+
+		to {
+			opacity: 1;
+			-webkit-transform: translateX(500px);
+			transform: translateX(500px);
+		}
+	}
+
+	@keyframes removeRight {
+		0% {
+			opacity: 0;
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+
+		to {
+			opacity: 1;
+			-webkit-transform: translateX(500px);
+			transform: translateX(500px);
+		}
+	}
+
+	@-webkit-keyframes slideInLeft {
+		0% {
+			visibility: visible;
+			-webkit-transform: translate3d(-100%, 0, 0);
+			transform: translate3d(-100%, 0, 0);
+		}
+
+		to {
+			-webkit-transform: translateZ(0);
+			transform: translateZ(0);
+		}
+	}
+
+	@keyframes slideInLeft {
+		0% {
+			visibility: visible;
+			-webkit-transform: translate3d(-100%, 0, 0);
+			transform: translate3d(-100%, 0, 0);
+		}
+
+		to {
+			-webkit-transform: translateZ(0);
+			transform: translateZ(0);
+		}
+	}
+
+	@-webkit-keyframes slideInRight {
+		0% {
+			visibility: visible;
+			-webkit-transform: translate3d(100%, 0, 0);
+			transform: translate3d(100%, 0, 0);
+		}
+
+		to {
+			-webkit-transform: translateZ(0);
+			transform: translateZ(0);
+		}
+	}
+
+	@keyframes slideInRight {
+		0% {
+			visibility: visible;
+			-webkit-transform: translate3d(100%, 0, 0);
+			transform: translate3d(100%, 0, 0);
+		}
+
+		to {
+			-webkit-transform: translateZ(0);
+			transform: translateZ(0);
+		}
+	}
+
+	@keyframes ellipsis {
+		0% {
+			content: '';
+		}
+
+		25% {
+			content: '.';
+		}
+
+		50% {
+			content: '..';
+		}
+
+		75% {
+			content: '...';
+		}
+
+		100% {
+			content: '';
+		}
+	}
+
+	.animated {
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+
+	.direction-column {
+		flex-direction: column;
+	}
+
+	#DiskAnalysis {
+		height: 526px;
+		width: 1100px;
+		position: relative;
+		overflow: hidden;
+		padding-bottom: 24px;
+	}
+
+	.scan-header,
+	.scan-view,
+	.file-view {
+		position: relative;
+		z-index: 999;
+	}
+
+	.file-view {
+		padding: 0 24px 24px;
+	}
+
+	/* 省略动画效果 */
+	.omit {
+		display: inline-block;
+	}
+
+	.omit::after {
+		content: '';
+		animation: ellipsis 2s infinite;
+	}
+
+	/* 省略 */
+	.nowrap {
+		display: inline-block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/* 初始化状态 */
+	.scan-header.init {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		border-radius: 4px;
+	}
+
+	/* 扫描左侧内容 */
+	.scan-header .scan-left {
+		height: 136px;
+		width: 136px;
+		position: relative;
+		margin-right: 90px;
+		transition: all 500ms;
+		margin-left: 8px;
+	}
+
+	.scan-left .filescan-serach {
+		width: 136px;
+		height: 136px;
+		position: absolute;
+		transition: all 500ms;
+	}
+
+	.scan-left .filescan-icon {
+		width: 60px;
+		height: 60px;
+		position: absolute;
+		right: -10px;
+		bottom: 0;
+		transition: all 500ms;
+	}
+
+	/* 扫描右侧内容 */
+	.scan-right .scan-title {
+		font-size: 24px;
+
+		color: #555;
+		/* 邓 */
+		margin-bottom: 14px;
+		font-weight: 600;
+	}
+
+	.scan-right .scan-dir {
+		margin-bottom: 16px;
+	}
+
+	.scan-right .scan-dir span {
+		margin-right: 10px;
+		font-size: 13px;
+	}
+
+	.scan-right .scan-dir .btlink {
+		font-size: 13px;
+	}
+
+	.scan-btn button {
+		/* 邓 */
+		margin-right: 16px;
+		font-size: 14px;
+		padding: 6px 16px;
+		transition: all 500ms;
+	}
+
+	.scan-btn button:last-child {
+		margin-right: 8px;
+	}
+
+	.scan-btn .cancel-scan {
+		display: none;
+	}
+
+	/* 启动扫描后 */
+	.scan-header.scan,
+	.scan-header.result {
+		padding: 24px 24px 16px;
+		display: flex;
+	}
+
+	.scan-header.scan .scan-left,
+	.scan-header.result .scan-left {
+		height: 60px;
+		width: 60px;
+		position: relative;
+		margin-right: 40px;
+		/*邓 */
+		/* top:6px */
+	}
+
+	.scan-header.scan .filescan-serach,
+	.scan-header.result .filescan-serach {
+		height: 60px;
+		width: 60px;
+	}
+
+	.scan-header.scan .filescan-icon,
+	.scan-header.result .filescan-icon {
+		height: 25px;
+		width: 25px;
+	}
+
+	.scan-header.scan .scan-right,
+	.scan-header.result .scan-right {
+		display: flex;
+		flex: 1;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.scan-header.scan .scan-title {
+		font-size: 20px;
+		margin-bottom: 4px;
+	}
+
+	.scan-header.scan .scan-dir,
+	.scan-header.result .scan-dir {
+		display: none;
+	}
+
+	.scan-header.result .scan-title {
+		font-size: 16px;
+		line-height: 24px;
+		/* width: 350px; */
+		margin-bottom: 0;
+	}
+
+	.scan-header.result .scan-dir {
+		margin-bottom: 0;
+	}
+
+	.scan-header .scan-dir {
+		display: flex;
+		padding-left: 2px;
+	}
+
+	.scan-header.result .scan-btn {
+		display: flex;
+	}
+
+	.scan-header .scan-dir .catalogue {
+		display: inline-block;
+		/* max-width: 100px; */
+		vertical-align: middle;
+		border: 1px solid #DCDFE6;
+
+		width: 300px;
+		padding: 0px 30px 0px 8px;
+
+		/* 邓 */
+		color: #666666;
+		font-size: 12px;
+		line-height: 30px;
+		border-radius: 2px;
+	}
+
+	.scan-header.result .scan-dir span,
+	.scan-header.result .scan-dir .btlink {
+		font-size: 12px;
+		margin-left: 4px;
+	}
+
+	.scan-header.scan .scan-btn .scan-now,
+	.scan-header.scan .scan-btn .history-scan {
+		display: none;
+	}
+
+	.scan-header.scan .scan-btn .cancel-scan {
+		display: block;
+	}
+
+	.scan-view {
+		padding: 0 24px 24px;
+	}
+
+	.scan-view pre {
+		overflow: auto;
+		border: 0 none;
+		line-height: 23px;
+		padding: 15px;
+		margin: 0;
+		white-space: pre-wrap;
+		background-color: #00192b;
+		color: #f1f1f1;
+		border-radius: 2px;
+		transition: all 200ms;
+	}
+
+	/* 文件表格 */
+
+	.filescan-nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		/* height: 61px; */
+		line-height: 30px;
+		/* border-top: 1px solid #efefef; */
+		padding: 10px 4px;
+	}
+
+	.filescan-nav .divider {
+		display: inline-block;
+		height: 16px;
+		line-height: 16px;
+		padding: 0 8px;
+		color: #bbb;
+		position: relative;
+		top: -1px;
+	}
+
+	.filescan-nav .filescan-nav-item {
+		max-width: 120px;
+		display: inline-block;
+		height: 20px;
+		line-height: 20px;
+		/* 邓 */
+		font-size: 12px;
+	}
+
+	.filescan-list {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		color: #666666;
+	}
+
+	.file-type-icon {
+		/* 邓 */
+		width: 16px;
+		height: 18px;
+		/* 邓  end*/
+		display: inline-block;
+		vertical-align: middle;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.file_folder {
+		height: 16px;
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYuMDAwMDAwIiBoZWlnaHQ9IjE2LjAwMDAwMCIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KCTxkZXNjPgoJCQlDcmVhdGVkIHdpdGggUGl4c28uCgk8L2Rlc2M+Cgk8ZGVmcz4KCQk8Y2xpcFBhdGggaWQ9ImNsaXA2XzEzOTAiPgoJCQk8cmVjdCBpZD0i5paH5Lu25Zu+5qCHIiB3aWR0aD0iMTYuMDAwMDAwIiBoZWlnaHQ9IjE2LjAwMDAwMCIgZmlsbD0id2hpdGUiLz4KCQk8L2NsaXBQYXRoPgoJPC9kZWZzPgoJPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXA2XzEzOTApIj4KCQk8cGF0aCBpZD0icGF0aCIgZD0iTTEuMjY4MTMgNi40Mzg1N0wwIDExLjA4ODNMMCAyLjE2NjZDMC4wMDA2MTAzNTIgMS42MTE2NSAwLjI3ODM4MSAxLjMzMzg4IDAuODMzMzEzIDEuMzMzMjVMNC43OTI5MSAxLjMzMzI1QzUuMDIzMzIgMS4zMzI2MyA1LjIxOTczIDEuNDEzOTcgNS4zODIyIDEuNTc3MzJMNy4wODkyOSAzLjI4NDM5QzcuMTIxNyAzLjMxNzEyIDcuMTYxMDEgMy4zMzM0IDcuMjA3MDkgMy4zMzMyNUwxMy4xNjY3IDMuMzMzMjVDMTMuNzIxNiAzLjMzMzg4IDEzLjk5OTQgMy42MTE2NSAxNCA0LjE2NjZMMTQgNS4zMzMyNUwyLjcxNTIxIDUuMzMzMjVDMS45NTIzOSA1LjMzNDQ5IDEuNDcwMDMgNS43MDI5MyAxLjI2ODEzIDYuNDM4NTdaTTE1LjY3NDQgNi4zMjc0MkMxNS41MDgxIDYuMTA4MDUgMTUuMjg3NCA1Ljk5ODg3IDE1LjAxMjEgNS45OTk5MkwyLjcxNTIxIDUuOTk5OTJDMi4yOTEyNiA2LjAwMDczIDIuMDIzMjUgNi4yMDU1OCAxLjkxMTI1IDYuNjE0NUwwLjE4Mzk2IDEyLjk0NzhDMC4xMTE5MzggMTMuMjEyOSAwLjE1OTI0MSAxMy40NTQ1IDAuMzI1OTg5IDEzLjY3MjZDMC40OTI3MzcgMTMuODkwOCAwLjcxMzM3OSAxMy45OTk5IDAuOTg3OTE1IDEzLjk5OTlMMTMuMjg0OCAxMy45OTk5QzEzLjcwODcgMTMuOTk5MSAxMy45NzY3IDEzLjc5NDMgMTQuMDg4NyAxMy4zODUzTDE1LjgxNiA3LjA1MkMxNS44ODkyIDYuNzg2OTMgMTUuODQyIDYuNTQ1MzkgMTUuNjc0NCA2LjMyNzQyWiIgZmlsbC1ydWxlPSJub256ZXJvIiBmaWxsPSIjRjhENjcyIi8+Cgk8L2c+Cjwvc3ZnPgo=');
+	}
+
+	/* .file_folder {
+		height: 16px;
+		background-image: url('./static/img/svg_path.png');
+	} */
+	.file_icon {
+		background-size: 24px 24px;
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAFpOLgnAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMqADAAQAAAABAAAAMgAAAAB1y6+rAAAD10lEQVRoBe1Z3U5aQRBeKBUxpEikll4oNsWnqOHed+lN05foG+ELaPwJl+gFCaW1qZYgBBChFKUz1N3sWWbZ3fOTcsEmJ2dndma+mdnZnwOM2bS7u7spPuVyecrlY7yDA7y/tbU148c5g3r7H6SsmXkzj6y85EJaD90HzO65SIikoxL3VjZwfn4+Iw8PD4VsQhbAfrPZZA8PD4K9vb3N9vb2BI2dOaVcLsfG47FHSCXmlOLxOFtfX1flPPScEo7GYjEsKv4gSxQZEtE3kb52u/04nU7npv7q6qp1cHDwmrsiC5C+9vv93NnZWZUryAhjQHjJB9Q3X1VypmYIjUbDI6udRLD+hJKqgEcbiDmE0WjkkVEnU1aYIagCHm0gjFlapDBDUAVUWkb4jINYS/A8PT+P8J4Ae6AqLhctqkN2C2qxDnP5Tubp+tVqtVcqlTK6ceTLuZLlCjKxqD8YDF7hqXBycvJNJ6eL5A9EItePTn+Oz9eDPKCLhFyJsqJLXwdiVZe2QGRKIFUikm63y4bD4UJ7+Xx+4TgJAhoikkwmw/AJ0nQgIhL1IKLAXLYsWV9Egqdb0KabeBFJUICV/nJmgNy7qIsX5X69XmfZbPZNsVhsUuOcp6suPm5812q1X7CW0osEA4Og8Uql0oedSHtTCQUEgY6OjvBKRKafZNrOCRpX2gjOk5TC056MqlwgOrR0oRdwrSEzo9uFhefqLVIMPHc2NjaYaRM1gpi2cQWUjCTUdAEgCWKM5Pb2VnHWS6ZSKePJaQTZ3Nz0WlWotbU1meMvEtNdXUaAPgkS9pwomP9IY7ocS5iMxAjiWMJkJGGni4wkVBDdLhwqCJkrYJJzAvvcb/AqiUrQl+9gVF/mfdIBrfirDESRAXJ9UkDwZf8RivoLFDTu7KqeE82X7M3NzfdkMvlhf3//B4XpwlMd0OpCIE/cAa2Q4wBepFutFkun053d3d33hUKh42hCiLvsW/LWIQyE0bm/v89eXl62j4+Pf0KyFv9AqgFcikC4b71e7y3c2Yenp6c1COgF59u8XQKxsReKTKfTKUJAk4uLi4qtQZc14vvHL1tnCDnyQ4eQc/r4iWyNUI658sj7g8YIGQhe9k2/tWnsCTZ+EFC/x8FWb10xLoEIYLlDOSCPB+xbB+Ky2MkZCehoaOrWgcB2+D8CsZ4Rl9IiA7m+vmaTCf6l4r8lEgm2s7NDGYgkEApI5wApGyXTurTACXJGonQObFvPyLIHYp2nwGskynPEZUZcAiGzszpHyLT4Zy71GoGjK/zFDteehv98+dMEzK/+NFdaqwyEloG/engwwneEWvEAAAAASUVORK5CYII=');
+	}
+
+	.file_gz {
+		background-size: 24px 24px;
+		background-image:
+			url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAFpOLgnAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMqADAAQAAAABAAAAMgAAAAB1y6+rAAAE4ElEQVRoBe1aW2wUVRj+Zne7s7O7tbQ0FCvYgFTSQIzok1YT5VGNRKL4IIh4QVtJJGoMKmhMS/ogt6CRGEyItycDmGDiGy+aPkA0KRADpcZQ66UCa6F7aXddxznT/tMz1z0zu0tbs/PQ/z//+c5/PWfO2TMFRJ50zwY1/fcV9cKZUyrhQ8QQvWXpcmJh6zR6NEaiBlNJfLKxWZcbI/99bwPk34eg7n+JMAGprtfTFikmkOEEdRB17YgwBHOZPZHV9+Kfc/06X8U/zFuqjM5PV4ivku5OKR/4yhHWKBITUF6ok6dUOCYzpYdlQ8lnIV/9DZHvjyE2mYb01T4jS6TEZOn69rXGlCAA0ZsOnDRhSV5l6pRmJvvl/ECKN20KHts+Aj7s5vuRz082Dg/9NEBCIxg9vQzMBjk8lGKzBQa0WLCOtQ+wIixts0uWTr7p7hKPcuD1hcLktFiSvceRfldbOMUC4q8eQnZfl2mYLYZ8/wkk3jgMqbkVk1/bM2bE4DWXmIlZmk+m6NwbRhg8xLQQqfgus+avP3/NLe9YE+fHW3lbck0AMmASmhuFQkFh75tLg2eHzT0zrdKRzGCFOJp8PNg7ksw1QHsFlVovvEIn3tvIkTeB+9Y7jfMlmwPp8uWvO9hY6zyE1j0vK4f3rsm05uhDz+qc0rUHsU1v63z4tjt0mtj15TTKnQgZYcMjqzuRO/Q6Jj7fjUTP0RmNkegMX+PmTQZsizEzdjWvqmqdEYHHvn1tLAWlIdnW1NQ6bOAdGNvsEjVAui6PjFxKpVIN1HaiNiM2kMDr/vLI0JjJOYsSbyMuG5VFh94cPHs67yRnMltNTLui2ygPuf/9RCBVHvaMLu90bekre8NilryNsE2rAs8cqUkF6jIHIqlAPZgK78LPJyO2g0SlDxEsGTYjfIZiT+9CuP1OIDuOTN8zSPYeQ3rneijP9UCqb4SUaEBm9yZ+iCPvaWTisx7U3f8YCt8d1wdnD25HeNU9U/yBbZCaFjsqtQqFCx99+HnIj26FsvkdXQeLIvbka1Z9jm1hI6FFS5D7ZCcyvRu1ORmCqh3Gcx/v0NPmqJkT2hbj+J4Xr6gjFxdyGGFWWnn3aH3X+2I5FNZaA9Yy4J4B2wR2gmrnly80+VNOfaafrD4OUExXNn39j1BYWtvcuuy8o24fQtFA7Ld3/J7sMwDyjx2k0+NjqIvK44saF7cnW1pGqc8vDR4IWSojIAqEVMkxZbStfcEySVqaI5koDR5IGQGQc9ZASB5T4hdvXbFqpSRJ9plAIAsNHggpKiMgt0BIdSJe379kRUcntb1o8EDKCMDLIWuf0w8dK4a1gwdC2gZOAqe/BfITQPcHJK0YFQ3E87jl6Q1fEU/gjekUPm3dGHeCWwleEWaT3z9muULBA2lpM/+uZ+1ZfMpf7FV2XnSx/2/WSC2QKs8o3+qFFns1LiV8e1piQEWmFrujoC8qZC+y5kHIj7+C+I4j2vlh6p3CLkfoKwvDhdo6kHjrUxpSFhWqiF8L0sKbEX3gCWT3dyN8+11QtvbpVxVMj/zIC1C12x9EZUjRGCaOHvSr3hFf+UC0O5b4y3uR3Tv1jzPFwR9R1DIvr5tqT35zGMWfz+jOsP9Uqetch+KFHxyd8yMU2kdKfZP3Y9Avdm5/7/cbTQ0/DzPwH3BIocY9I5NaAAAAAElFTkSuQmCC');
+	}
+
+	.file_zip {
+		background-size: 24px 24px;
+		background-image:
+			url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAACBUlEQVRYR2NkGGSAcZC5h2HUQYRiBGcIff3w9tf///9ZMQyYkgURypmG1+yPH94x/Pzx9buSpiEXIUcgy+N00Jf3b/6jGESkQ2B6QA768vkDg7S4vASPuPhLYh1FvINgJhLpMJiDQNrYOThfyqsKKDIyyn4n5DDiHQRzCMxEIqIMFEIwwMHB+VheTVeO+g4i4BD0KEN2gJquKRMjIyNqUkBzIfEhREGUIdvJzcV7TEZF0xpXSJHuIEJhToQ8j6AITnuJdxCRiZkI9zBQx0Ewm+aUMjD8+sHAkDWZGLuxqqGOg75+hBg+v5KoghGfa6njIBKz/Qh1EKwMAoUWkeURtpAaplG2upOB4eVDiIfF5RkYQssHOJeRbT2mRupE2aiD0EIAo4E2GkJoIfCpwAlvu4WSAOObsI/02n5IOYjF0JGB3SMeEkhcvAx/zh9g+PvoBgO7VxIDw++fDP///WX4PqOc4f/HN1gDkjYhxMTMwJnRyfD75HYGZnktsIP+v3/J8PfuJbAj2IPzGH6unUQ/B7GHFzP8//iW4deOBQzsQblgB7GoGzP8e/+KgUlAlOHXnmUM/149pp+DOOJqGH4saoGEBtRBjDwCDP+e3WP49/4lw//XT3Cme6pHGVfJLAZGVja4hX9unsWIMny5kOoOoiTLg/SS5SBKLSVX/+hwDKGQG3QhBABxcw801ncK4AAAAABJRU5ErkJggg==');
+	}
+
+	.file_rar {
+		background-size: 24px 24px;
+		background-image:
+			url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAFpOLgnAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMqADAAQAAAABAAAAMgAAAAB1y6+rAAAFB0lEQVRoBe1aW2wUVRj+Zu8z21q2NBQq0FCppKImoCYqJmqN8UENiSjR+CJqvVQMRBJTSExAIn1QYhWiEowEo08GnzTGF140hNho0pYQWi5KWVNLcS10L3Tb7Tjn1H8y95md3dKt2Xno+e/Xc/acOVPAy5Peu1lO/3NFHuz/RSb5AAE03ryihUCYmCpHAQRCmEmCaxINnB4iQjQ1AuQmgHCUSD5HbtfKlylKEjIxyLMzY2bPZoR+OoZochAMnuOHRUud4fB/HdJ2iYWgltQuHm3nSEZtEiNQXYipHalxjKYrD6uAFBMR+eMUpHCIV0WcnjRVxhReeueTWgfzDVuVmdF+P9OX0samSx5bPwEOdmr5yOcnE8PnTvcRUS0xLy8TZkoWD5VY74EJGjwYdc0KRgkDrg/JwNSi9iFppSxgtdu0QKTtB5Ht2cpFtTDpqgpEyB19F5HHX0bkwU3I7HmWyOqo5nBte7v686JyNcBNPcdVWQ25QkDL0HQLkZpvM2su/3Up19K2TnLKx3mCkAMHC1NTUyL7vbk4NDBsJ+aeiZ2mDZ0mn5btnEnmKvDzt67rRWvQCnZ2cmQn8MBTVnpF0SqgXEXFay9sWrpMlNa9vVpxHOeeKLbEN/Zzi7Hn3uZjYMlKBNfeB/GlvRwX6pfy0emPqxNSLvx5HrEtuzFzeRgzl4aULXFWVR4fg1CbILHquEAqYFqMmfG/87Ish9X4Hfbtq+MpiHU1zfX1TcOqvAVgml1eHZCtsWTyYiqVqiPcajQ5MQl5+LkfS54b1wVnMOLsxGajMtjg6NBAb96Kzmimnuh2RTstB3rx+4mHUjn4U1nO5drSXfKGxTw5O2GbVhmeCulJGfpSAZmUoR/MhHPjF5IT00Gi3IcI13IFlreCvZ3Ed30JRGJAMIzII7MvH1LXF5De+hTB2+51LaopE6MGvQqF7nkM4bsfhXLvwkUmv+lB4Xw/4u98jczpk0Y1He7aeCFex1+hpnt/RGBRA4RYHEJDEwSxBsGWO5D96E2dQSvE1YmsHLrz33+OWMd7yHS/gNzhXZC2HYCcS6NwYQDSjkNWdnU002Kc+ODVK3Ly7GKdlEdEWHPXaO3r77uf9jzaq4pVK+BWAdMEtlJQzi9fKfTnrXi6K54iDlDMVjZ9bSQQFNobmladsbRdBNFrIuYbF+2eXGQCFB87SKcnxhGORCeWJJa21jQ2jhKv2NF/IuSphIQoETIVjYmjza2LVgnCihzRvI7+EykhAQrOmAjRY6J0duXqtWsEQTDPBBIyjP4TIUMlJGSXCJmOS7Unlq9u20C40+g/kRIScArIyLN60THKMNx/ImSt7zjQ+wOQvw50HiBq2Uavibget2wj0nbEVujGMVxPWzculNI8+e8I86vdP+a5Q/4TaWzWv9czfB6f0hf7HAfvdbH/b9ZINZE5nlFFm/e02OfiUqLoSF0USppa7BKEvqZwP4IA8ZV9CK1v52ho3cOIPr0NUtcR5Qwx+7vCvrIEb7lTDSvQ3KZcohxVcb+Ap444GQ8ua4HYsY+LCIlG5UqiH9OnTkBYvAyRh55B9sNOBG9dryTYjdyhLi4XfaIDclb5n5RIFIJyC3T92MdOLjzxSk6kMHKB362QN2nHZ2DfuMQXdyO7/zVOLgz9hoJS+ejGWXzyu8P8NokxQ7ffj/CGjSgM/komfI2e9hG3b/K+PHtUquzv/R6TqIot5Ar8C0qsuScXU6OKAAAAAElFTkSuQmCC');
+	}
+
+	.file_html {
+		background-size: 24px 24px;
+		background-image:
+			url('data:image/png;base64,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');
+	}
+
+	.file_images {
+		width: 22px;
+		height: 22px;
+	}
+
+	.filescan-list-title {
+		height: 32px;
+		line-height: 32px;
+		padding: 0 8px;
+		color: #555;
+		background: #F6F6F6;
+		border-bottom: 1px solid #efefef;
+	}
+
+	.filescan-list-body {
+		font-size: 12px;
+		flex: 1;
+		max-height: 530px;
+		overflow-y: auto;
+		color: #666;
+	}
+
+	.filescan-list-item {
+		height: 40px;
+		line-height: 40px;
+		border-bottom: 1px solid #efefef;
+		padding: 0 8px;
+	}
+
+	.filescan-list-item:hover {
+		background-color: #F5F7FA;
+	}
+
+	.filescan-list-title,
+	.filescan-list-item {
+		display: flex;
+		align-items: center;
+		color: #666666;
+	}
+	.filescan-list-col{
+		overflow: hidden;
+		text-overflow: ellipsis;
+		word-wrap: break-word;
+	}
+	.filescan-list-col,.filescan-list-title-item{
+		flex-flow: 0;
+		flex-shrink: 0;
+	}
+	.filescan-list-col:nth-child(1),
+	.filescan-list-title-item:nth-child(1) {
+		width: 200px;
+	}
+
+	.bt-cp1-hover:hover {
+		width: 200px;
+		padding: 0 15px;
+		display: flex;
+		align-items: center;
+	}
+	.filescan-list-col:nth-child(2),
+	.filescan-list-title-item:nth-child(2) {
+		width: 120px;
+		padding-left: 15px;
+	}
+
+	.filescan-list-col:nth-child(3),
+	.filescan-list-title-item:nth-child(3) {
+		width: 100px;
+	}
+
+	.filescan-list-col:nth-child(4),
+	.filescan-list-title-item:nth-child(4) {
+		/* width: 78px; 邓*/
+		width: 120px;
+	}
+
+	.filescan-list-col:nth-child(5),
+	.filescan-list-title-item:nth-child(5) {
+		width: 91px;
+	}
+
+
+	.filescan-list-col:nth-child(6),
+	.filescan-list-title-item:nth-child(6) {
+		width: 130px;
+	}
+
+	.filescan-list-col:nth-child(7),
+	.filescan-list-title-item:nth-child(7) {
+		width: 130px;
+	}
+
+	.filescan-list-col:nth-child(8),
+	.filescan-list-title-item:nth-child(8) {
+		width: 80px;
+		text-align: right;
+	}
+
+	.filescan-list-col a:hover {
+		background-color: transparent;
+	}
+
+	.filescan-list-col a:focus {
+		text-decoration: none;
+	}
+
+	.filescan-list-col .path {
+		margin-left: 8px;
+	}
+
+	.present {
+		max-width: 220px !important;
+	}
+
+	.progress_box {
+		flex: 1;
+		height: 10px;
+		background-color: #e3e3e3;
+		border-radius: 8px;
+		margin-right: 5px;
+		overflow: hidden;
+	}
+
+	.progress_item {
+		height: 100%;
+		background-color: #20a53a;
+		border-radius: 8px;
+	}
+
+	/* 新增加  邓 */
+
+	.bt-cp-hover:focus {
+		background-color: #fff !important;
+		border: #ccc 1px solid !important;
+		color: #666666 !important;
+	}
+
+	.bt-cp-hover:hover,
+	.bt-cp1-hover:hover,
+	.bt-cp2-hover:hover {
+		background-color: #F1F9F3 !important;
+		border: #BCE4C4 1px solid !important;
+		color: #20A53A !important;
+	}
+
+	.bt-cp1-hover:hover {
+		border-right: none !important;
+	}
+
+	.bt-cp2-hover:hover {
+		border-left: none !important;
+	}
+
+	/* 按钮点击后的样式 */
+	.btn-click {
+		background-color: #F1F9F3 !important;
+		border: #1d9534 1px solid !important;
+		color: #1d9534 !important;
+	}
+
+	.cursor_ScanPath {
+		position: absolute;
+		left: 275px;
+		top: 8px;
+		font-size: 16px;
+		color: #666666;
+	}
+
+	.bt-cp {
+		padding-left: 12px !important;
+		padding-right: 12px !important;
+
+	}
+
+	#historyTable>.divtable {
+		border: 0px;
+	}
+
+	#historyTable tbody tr td:nth-child(4) {
+		width: 80px;
+		color: #666;
+	}
+
+	#scan_disposition input,
+	#scan_disposition textarea,
+	.catalogue {
+		outline-color: #1D9534;
+		/* opacity: ; */
+	}
+
+	.info-fen {
+		border: 1px dashed #DCDFE6;
+		margin-right: 25px;
+		margin-top: 7px;
+		/* margin-bottom: 15px; */
+	}
+
+	.title_hover {
+		position: absolute;
+		background: #fff;
+		margin-top: 7px;
+		padding: 10px 12px;
+		z-index: 999;
+		box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+	}
+
+	.scan-dir {
+		height: 32px;
+	}
+
+	.table-hover>tbody>tr:hover {
+		background-color: #F5F7FA !important
+	}
+
+	.scan-set:active {
+		background-color: #F1F9F3 !important;
+		border: #1d9534 1px solid !important;
+		color: #1d9534 !important;
+	}
+
+	.cursor_ScanPath:active {
+		color: #333;
+	}
+
+	.cursor_ScanPath:hover {
+		color: #333;
+	}
+
+	.scan-auxiliary.bt-cp-hover:active {
+		background-color: #F1F9F3 !important;
+		border: #1d9534 1px solid !important;
+		color: #1d9534 !important;
+	}
+
+	span.tname {
+		font-size: 14px;
+		color: #666666;
+	}
+
+	.line {
+		padding: 10px 0;
+	}
+
+	.line .info-r {
+		margin-bottom: 0px;
+	}
+
+	#scan_disposition form .line:nth-child(2) {
+		padding-top: 0px
+	}
+
+	.layui-layer-btn {
+		background-color: #f6f8f8;
+		border-top: 1px solid #edf1f2;
+		border-bottom: 1px solid #edf1f2;
+		float: left;
+		padding: 10px 18px 10px;
+		pointer-events: auto;
+		text-align: right;
+		width: 100%;
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	.bt-search .glyphicon-search {
+		/* height: 28px;
+		line-height: 28px;
+		padding: 0 10px;
+		color: #888;
+		position: absolute; */
+		right: 1px !important;
+		/* font-size: 14px; */
+		cursor: pointer;
+	}
+
+	.result_search {
+		background-color: #F5F7FA;
+		width: 44px;
+		text-align: center;
+		border-left: 1px solid #ccc;
+		height: 30px !important;
+		line-height: 30px !important;
+	}
+
+	.btlink:hover,
+	.btlink:active {
+		color: #238B37;
+	}
+
+	div#filescan-nav-search {
+		height: 32px;
+	}
+
+	input.search-input {
+		height: inherit !important;
+	}
+
+	button#screen {
+		/* height: 32px; */
+		border-radius: 2px;
+	}
+
+	.scan-result {
+		display: inline-block;
+		height: 24px !important;
+		line-height: 24px;
+		color: #666666;
+	}
+
+	.glyphicon-search:before {
+		content: "" !important;
+	}
+
+	#DiskAnalysis button.btn.btn-default {
+		color: #666666;
+	}
+
+	.btn.active,
+	.btn:active {
+		background-image: none;
+		outline: 0;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+	}
+
+	a {
+		color: #666666;
+	}
+
+	/* 排序图标 */
+	.caret-wrapper {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		height: 34px;
+		width: 24px;
+		vertical-align: middle;
+		cursor: pointer;
+		overflow: initial;
+		position: relative;
+		justify-content: center;
+	}
+
+	.caret-wrapper svg {
+		width: 10px;
+		height: 14px;
+
+	}
+
+	#caret1 {
+		color: #CDCDCD;
+	}
+
+	#caret2 {
+		color: #CDCDCD;
+	}
+
+	.filescan-list-item .filescan-list-col:nth-child(3) {
+		text-align: center;
+	}
+
+	.pointer_cursor {
+		cursor: pointer
+	}
+
+	.hide-show {
+		display: none;
+	}
+
+	.Catalogue_show {
+		border-right: none;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.File_show {
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+		border-left: none;
+	}
+
+	.bt_table>.divtable .table {
+		border-bottom: 1px solid #ebeef5;
+	}
+
+	.screen_describe {
+		color: #999;
+		font-size: 12px;
+		font-weight: normal;
+	}
+	.dividing-line {
+		width: 1px;
+		background: #ccc;
+		height: 20px;
+		vertical-align: middle;
+	}
+	.con-box {
+		padding: 20px;
+	}
+	.scan-result-view {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		gap: 20px;
+	}
+	.scan-result-view-top {
+		display: flex;
+		gap: 20px;
+	}
+
+	.scan-result-chart-box{
+		width: 50%;
+	}
+	.scan-result-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		/* padding: 20px; */
+    /* border: 1px solid #DCDFE6; */
+    /* border-radius: 2px; */
+	}
+	.scan-result-body {
+		flex: 1;
+    overflow: auto;
+		max-height: 544px;
+	}
+	.scan-result-item {
+		border: 1px solid #EBEEF5;
+    border-radius: 2px;
+		margin-bottom: 16px;
+	}
+	.scan-result-des {
+    margin-bottom: 16px;
+	}
+	.scan-result-item-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+		color: #666;
+		padding: 10px 20px 10px 12px;
+	}
+	.scan-result-item-header:hover{
+		background: #F5F7FA;
+	}
+	.scan-result-item-body {
+		margin-top: 12px;
+		padding: 0 20px 10px 20px;
+	}
+	.type-tag {
+		padding: 4px 10px;
+		margin-right: 8px;
+		border-radius: 2px;
+		color: #666;
+		background: #fff;
+		border: 1px solid;
+	}
+	.type-tag.org {
+		color: #F0AD4E;
+		border-color: #F0AD4E;
+	}
+	.type-tag.red {
+		color: #EF0808;
+		border-color: #EF0808;
+	}
+	.overAuto {
+		display: flex;
+		align-content: center;
+		overflow-y: auto;
+		/* overflow-x: hidden; */
+		max-height: 550px;
+		margin: 25px;
+	}
+	#result-bar-chart {
+		width: 100%;
+	}
+	#scan-result-chart {
+		width: 100%;
+		height: 520px;
+	}
+	.down-icon {
+		display: inline-block;
+		margin-right: 10px;
+	}
+	.down-icon::after {
+		content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+    transform: rotate(-135deg);
+	}
+	.scan-result-item.active .down-icon::after {
+		transform: rotate(-45deg);
+	}
+	.scan-info-des {
+		font-size: 14px;
+	}
+	.result-file-num,.result-file-dir {
+		margin: 0 6px;
+		color: #20a53a;
+	}
+	.ellipsis {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: inline-block;
+		overflow: hidden;
+	}
+	.typeCut {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	.btn-success.btn-sub-success{
+  	color: #20a53a;
+		background-color: #fff;
+		border-color: #20a53a;
+	}
+	.btn-success.btn-sub-success:active:hover,
+	.btn-success.btn-sub-success:hover {
+		color: #20a53a;
+		background-color: #F1F9F3;
+		border-color: #BCE4C4;
+	}
+	.btn-success.btn-sub-success:focus{
+		color: #20a53a;
+		background-color: #F1F9F3;
+		border-color: #1D9534;
+	}
+	/* 磁盘清理 */
+
+	.clear_tools_header{
+		display: flex;
+    	justify-content: space-between;
+		padding:0 20px;
+	}
+	.clear_tools_item>i,
+	.clear_tools_header .ct_left i{
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		width: 32px;
+		height: 32px;
+		padding:28px;
+		display: inline-block;
+		vertical-align: top;
+		background-repeat: no-repeat;
+		background-size: 32px;
+		background-position: 12px;
+		transition: all 300ms;
+	}
+	.clear_tools_item .ct-title-box{cursor: pointer;}
+	.clear_tools_header .ct_left i{
+		position: relative;
+		background-image: url(/disk_analysis/static/clearIcon/loding-success.svg);
+	}
+	
+	.ctw_item i.ct_system,
+	.ct_mode_title i.ct_two_system,
+	.clear_tools_item>i.clear_home_system{
+		background-image: url(/disk_analysis/static/clearIcon/scan-system.svg);
+	}
+	.ctw_item i.ct_panel,
+	.ct_mode_title i.ct_two_panel,
+	.clear_tools_item>i.clear_home_panel{
+		background-image: url(/disk_analysis/static/clearIcon/scan-atime.svg);
+	}
+	.ctw_item i.ct_other,
+	.ct_mode_title i.ct_two_other,
+	.clear_tools_item>i.clear_home_other{
+		background-image: url(/disk_analysis/static/clearIcon/scan-other.svg);
+	}
+	.clear_tools_header .ct_left div{
+		display: inline-block;
+		margin-left: 20px;
+		margin-top: 10px;
+	}
+	.clear_tools_header .ct_left div>span{
+		font-size: 16px;
+	}
+	.clear_tools_header .ct_left div p{
+		margin-top: 8px;
+		color: #999;
+	}
+	.clear_tools_header .ct_left .clean_tip{
+		font-size: 12px;
+		color: #999;
+		margin-left: 6px;
+	}
+	.clear_tools_header .ct_left i.clear_loading,
+	.clear_tools_header .ct_left i.t_loading{
+		border: none;
+		background-size: 24px;
+    	background-position: 17px 18px;
+	}
+	.clear_tools_header .ct_left i.logo2,
+	.clear_tools_header .ct_left i.clear_loading{
+		background-image: url(/disk_analysis/static/clearIcon/loding-red.svg);
+	}
+
+	.clear_tools_header .ct_left i.clear_loading::after,
+	.clear_tools_header .ct_left i.t_loading::after{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 58px;
+		height: 58px;
+		border: 2px solid #20A53A;
+		border-top-color: #f1f9f3;
+		border-right-color: #f1f9f3;
+		border-bottom-color: #f1f9f3;
+		border-radius: 100%;
+		animation: circle infinite 0.75s linear;
+	}
+	.clear_tools_header .ct_left i.clear_loading::after{
+		border: 2px solid #ef0808;
+		border-top-color: #fde6e6;
+		border-right-color: #fde6e6;
+		border-bottom-color: #fde6e6;
+		border-radius: 100%;
+	}
+	@keyframes circle {
+		0% {
+			transform: rotate(0);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	.clear_tools_header .ct_right{
+		margin-top: 14px;
+	}
+	.line_border.cline{
+		border-bottom: 1px solid #ccc;
+		margin-top: 20px;
+		margin-bottom: 5px;
+	}
+	/* 进度 */
+	.line_border.speed .g-container {
+		margin-top: 20px;
+		margin-bottom: 5px;
+		width: 100%;
+		height: 4px;
+		border-radius: 25px;
+		background: #eee;
+	}
+	.line_border.speed .g-progress {
+		width:0%;
+		height: inherit;
+		border-radius: 25px 0 0 25px;
+		background: #F0AD4E;
+		transition: all 300ms;
+	}
+
+	/* 进度end */
+	::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+		background-color: #efefef;
+		border-radius: 5px;
+	}
+	::-webkit-scrollbar-track {
+		border-radius: 20px;
+	}
+	::-webkit-scrollbar-thumb {
+		border-radius: 0;
+		background: rgba(0,0,0,.2);
+		border-radius: 8px;
+	}
+	#clear_tools_content{
+		height: 450px;
+    	overflow: auto;
+	}
+	#clear_tools_content.gl_over{
+		overflow: inherit;
+	}
+	#clear_tools_content .ct_mode{
+		padding: 70px;
+	}
+	.clear_tools_item {
+		display: flex;
+		margin-bottom: 30px;
+	}
+	.clear_tools_item:last-child{
+		margin-bottom: 0;
+	}
+	.clear_tools_item div {
+		margin-left: 40px;
+		padding-top: 10px;
+		font-size: 13px;
+	}
+	.clear_tools_item div p{
+		margin-top: 8px;
+		color: #999;
+	}
+	.clear_tools_item div span span{
+		margin-left: 6px;
+		font-size: 13px;
+	}
+	.ct_item_detail_dialog .cust-checkbox,
+	.clear_tools_dialog .cust-checkbox{
+		cursor: pointer;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border: 1px solid #ccc;
+		background-color: #fff;
+		vertical-align: top;
+		position: relative;
+		border-radius: 2px;
+	}
+	.ct_item_detail_dialog .cust-checkbox.active,
+	.clear_tools_dialog .cust-checkbox.active{
+		background-color: #20a53a;
+    	border-color: #20a53a;
+	}
+	.clear_tools_dialog .cust-checkbox.difference::after{
+		content: '';
+		position: absolute;
+		display: block;
+		left: 17%;
+		top: 15%;
+		width: 10px;
+		height: 10px;
+		border-radius: 2px;
+		background-color: #20a53a;
+	}
+	.ct_item_detail_dialog .cust-checkbox.active::after,
+	.clear_tools_dialog .cust-checkbox.active::after {
+		content: '';
+		position: absolute;
+		display: block;
+		left: 50%;
+		top: 50%;
+		margin-left: -2px;
+		margin-top: -6px;
+		width: 5px;
+		height: 10px;
+		border: solid #fff;
+		border-width: 0 2px 2px 0;
+		transform: rotate(45deg);
+	}
+
+	.ct_mode_two{
+		padding: 20px 40px
+	}
+	.ct_mode_title i {
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		display: inline-block;
+		vertical-align: top;
+		background-repeat: no-repeat;
+		background-size: 28px;
+		background-position: 6px;
+	}
+	.ct_mode_title .ct_title{
+		padding: 10px;
+		display: inline-block;
+	}
+
+	.ct_mode_content {
+		margin-top: 20px;
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		text-align: center;
+		width: 640px;
+	}
+	.ct_mode_items{
+		width: 80px;
+		margin-right: 28px;
+	}
+	.ct_mode_content .ct_mode_items:nth-child(n+7){
+		margin-top: 10px;
+	}
+	.ct_mode_content .ct_mode_items:nth-child(6n),
+	.ct_mode_content .ct_mode_items:last-child{
+		margin-right: 0;
+	}
+	.ct_mode_items i{
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		width: 60px;
+		height: 60px;
+		text-align: center;
+		display: inline-block;
+		vertical-align: top;
+		cursor: pointer;
+		background-repeat: no-repeat;
+		background-size: 38px;
+		background-position: 10px;
+	}
+	.clear_tools_header .ct_left i.cache,
+	.ct_mode_items i.cache{
+		background-image: url(/disk_analysis/static/clearIcon/scan-cache.svg);
+	}
+	
+	.clear_tools_header .ct_left i.pm2,
+	.ct_mode_items i.pm2{
+		background-image: url(/disk_analysis/static/clearIcon/scan-pm2.svg);
+	}
+	.clear_tools_header .ct_left i.temp,
+	.ct_mode_items i.temp{
+		background-image: url(/disk_analysis/static/clearIcon/scan-atime.svg);
+	}
+	.clear_tools_header .ct_left i.docker,
+	.ct_mode_items i.docker{
+		background-image: url(/disk_analysis/static/clearIcon/scan-docker.svg);
+	}
+	.clear_tools_header .ct_left i.fail2ban,
+	.ct_mode_items i.fail2ban{
+		background-image: url(/disk_analysis/static/clearIcon/scan-fail.svg);
+	}
+	.clear_tools_header .ct_left i.recycle,
+	.ct_mode_items i.recycle{
+		background-image: url(/disk_analysis/static/clearIcon/scan-recycle.svg);
+	}
+	.clear_tools_header .ct_left i.filelog,
+	.ct_mode_items i.filelog{
+		background-image: url(/disk_analysis/static/clearIcon/scan-filelog.svg);
+	}
+	.clear_tools_header .ct_left i.log,
+	.ct_mode_items i.log{
+		background-image: url(/disk_analysis/static/clearIcon/scan-log.svg);
+	}
+
+	/* 除第一个增加外边距 */
+	.ct_mode_child:nth-child(n+2){
+		margin-top: 20px;
+	}
+	.ct_mode_items>div{
+		margin-top: 10px;
+		width: 96px;
+		text-align: center;
+		margin-left: -8px;
+	}
+	.ct_tips .ct_tips_total{
+		color: #ccc;
+	}
+	.ct_tips .ct_tips_status{
+		margin-left: 20px;
+	}
+	.ct_tips .ct_tips_status.success{
+		color: #20a53a;
+	}
+	.ct_tips .ct_tips_status.warring{
+		color: #f0ad4e;
+	}
+	.ct_mode_items .ct_mode_detail{
+		position: relative;
+		display: inline-block;
+	}
+	.ct_mode_items .ct_mode_detail .mode—check {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+	#ct_detail_box{
+		padding: 30px 30px 0;
+		height: 430px;
+    	overflow: auto;
+	}
+	.ct_detail_title {
+		display: flex;
+		justify-content: space-between;
+	}
+	.ct_detail_title div:nth-child(2) span:first-child{
+		margin-right: 30px;
+	}
+	.ct_detail_title div:nth-child(2) span:nth-child(2){
+		display: inline-block;
+    	width: 70px;
+		margin-right: 15px;
+	}
+	.ct_detail_title img{
+		cursor: pointer;
+	}
+	.ct_detail_content .ctd_title,
+	.ct_detail_title .ctd_title{
+		font-size: 13px;
+		max-width: 310px;
+		display: inline-block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.ct_detail_content {
+		padding: 0px 20px;
+		border: 2px solid #ccc;
+		border-radius: 6px;
+		margin-top: 10px;
+		overflow: auto;
+		max-height: 150px;
+		display: none;
+	}
+	.ct_detail_item:nth-child(n+2){
+		margin-top: 10px;
+	}
+	.ct_detail_item_title {
+		display: flex;
+		justify-content: space-between;
+		font-size: 13px;
+		margin: 10px 0;
+	}
+	.ct_detail_item_title div>span{
+		margin-right: 24px;
+	}
+	.ct_detail_footer{
+		position: absolute;
+		bottom: 10px;
+		left: 45px;
+		width: 88%;
+	}
+	.ct_detail_footer div{
+		display: inline-block;
+	}
+	.clear_tools_win{
+		display: flex;
+    	justify-content: flex-start;
+		padding: 70px 40px;
+	}
+	.clear_tools_win .ctw_content{
+		display: flex;
+    	flex-direction: column;
+		margin-top: 40px;
+    	margin-left: 30px;
+	}
+	.clear_tools_win .ctw_content .ctw_item {
+		display: flex;
+		margin-bottom: 15px;
+	}
+	.clear_tools_win .ctw_content .ctw_item i {
+		width: 54px;
+		height: 54px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		background-repeat: no-repeat;
+		background-size: 32px;
+		background-position: 10px;
+	}
+
+	.clear_tools_win .ctw_content .ctw_item>div {
+		margin-left: 15px;
+		padding-top: 6px;
+	}
+
+	.show{
+		display: inline !important;
+	}
+
+	.align-center {
+		align-items: center;
+	}
+	/* 磁盘清理end */
+	.btn-group-sm>.btn, .btn-sm{
+		font-size: 14px;
+	}
+</style>
+<div id="DiskAnalysis">
+	<div class="scan-header init">
+		<div class="scan-left">
+			<img class="filescan-serach"
+				src="data:image/png;base64,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"
+				alt="" />
+			<img class="filescan-icon"
+				src="data:image/png;base64,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"
+				alt="" />
+		</div>
+		<div class="scan-right">
+			<div class="flex direction-column">
+				<div class="scan-title">Scan and Analyze directory size</div>
+				<div class="scan-dir" style="position: relative;">
+					<input title="" class="catalogue nowrap mr10"></input><i
+						class="glyphicon glyphicon-folder-open  cursor_ScanPath pointer_cursor"></i>
+					<!-- <a href="javascript:;" class="btlink select-path">点击选择目录</a> -->
+					<!-- <input type="text" class="hide catalogue-path" /> -->
+					<div class="scan-btn">
+						<button class="btn btn-success btn-sm scan-now bt-cp">Scan Now</button>
+						<div class="inlineBlock dividing-line" style="margin: 0 16px 0 0;"></div>
+						<button class="btn btn-default btn-sm scan-set bt-cp-hover bt-cp" id="scan-set"
+							title="Exclude specific directories/files, they will not be scanned for size.">Exclude paths</button>
+					</div>
+					
+				</div>
+			</div>
+			<div class="scan-btn">
+				<!-- <button class="btn btn-success btn-sm scan-now bt-cp">Scan Now</button> -->
+				<!-- <div class="inlineBlock dividing-line" style="margin: 0 16px 0 0;"></div> -->
+				<button class="btn btn-success btn-sub-success btn-sm bt-sercer-scan" data-type="1"> aaPanel Service Analysis</button>
+				<button class="btn btn-success btn-sub-success btn-sm bt-system-disk-scan" data-type="2">Disk Analysis</button>
+				<button class="btn btn-success btn-sub-success btn-sm bt-system-garbage" data-type="3">Clean Junk</button>
+				<div class="inlineBlock dividing-line" style="margin: 0 16px 0 0;"></div>
+				<button class="btn btn-default btn-sm scan-auxiliary bt-cp-hover bt-cp" style="color:#666">History</button>
+			</div>
+		</div>
+	</div>
+	<div class="scan-view hide">
+		<pre id="scanProgress">Fetching scan logs</pre>
+	</div>
+	<div class="file-view hide">
+		<div class="filescan-nav">
+			<div class="filescan-nav fileScanPath" id="fileScanPath"></div>
+			<div class="filescan-nav-right" style="display: flex;align-items: center;">
+				<button class="btn btn-default btn-sm mr10  bt-cp screen bt-cp-hover hide-show screen_scan"
+					id="screen">Filter Settings</button>
+				<span class="hide-show screen_scan" style="border-left: 1px solid #ccc;margin-right: 10px;height: 20px;"></span>
+				<button title="Display directories and files in the current directory structure." class="btn btn-default btn-sm  bt-cp1-hover bt-cp Catalogue_show hide">File Structure</button>
+				<button title="Display the top 100 large files in the current directory structure (including files in subdirectories)" class="btn btn-default btn-sm mr10 bt-cp2-hover bt-cp File_show hide">All Files</button>
+				<!-- <button class="btn btn-default btn-sm mr5 bt-cp-hover bt-cp">历史记录</button> -->
+				<div class="bt-search" id="filescan-nav-search">
+					<input type="text" class="search-input" placeholder="Enter a file/folder">
+					<span class="glyphicon glyphicon-search result_search" aria-hidden="true">
+						<svg width="11.729492" height="11.479126" viewBox="0 0 11.7295 11.4791" fill="none"
+							xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							<desc>
+								Created with Pixso.
+							</desc>
+							<defs />
+							<path id="path"
+								d="M11.6377 10.8342L8.9585 8.24921C9.67993 7.3559 10.1023 6.19971 10.1023 5.05139C10.1023 2.26624 7.83643 0 5.05176 0C2.26636 0 0 2.26624 0 5.05139C0 7.83655 2.26636 10.1026 5.05176 10.1026C6.27222 10.1026 7.45142 9.65894 8.37183 8.85449L11.0747 11.3843C11.1423 11.4319 11.2458 11.4791 11.3289 11.4791C11.55 11.4791 11.7295 11.2988 11.7295 11.0784C11.7295 10.9933 11.6987 10.9108 11.6377 10.8342ZM5.05176 9.29993C2.70898 9.29993 0.803223 7.39423 0.803223 5.05139C0.803223 2.70886 2.70898 0.803589 5.05176 0.803589C7.39404 0.803589 9.29956 2.70886 9.29956 5.05139C9.29956 7.39423 7.39404 9.29993 5.05176 9.29993Z"
+								fill-rule="nonzero" fill="#999999" />
+						</svg>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="filescan-list" id="fileScanTable">
+			<div class="filescan-list-title">
+				<div class="filescan-list-title-item text-left">Files name</div>
+				<!-- <div class="filescan-list-title-item">占比</div> -->
+				<div class="filescan-list-title-item item_Size pointer_cursor">Size
+					<span class="caret-wrapper Size" data-type="total_asize">
+						<svg width="8.000000" height="12.000000" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink">
+							<desc>
+								Created with Pixso.
+							</desc>
+							<defs />
+							<path id="caret1" d="M4 0L0.535898 5.39999L7.4641 5.39999L4 0Z" fill-rule="evenodd" fill="currentColor" />
+							<path id="caret2" d="M4 12L0.535898 6.60001L7.4641 6.60001L4 12Z" fill-rule="evenodd"
+								fill="currentColor" />
+						</svg>
+					</span>
+				</div>
+				<!-- 文件夹 /  -->
+				<div class="filescan-list-title-item item_file pointer_cursor"
+					style="display: flex;align-items: center;"><span class="feile">File count</span>
+					<span class="caret-wrapper feile_srot" data-type="file_num">
+						<svg width="8.000000" height="12.000000" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+							xmlns:xlink="http://www.w3.org/1999/xlink">
+							<desc>
+								Created with Pixso.
+							</desc>
+							<defs />
+							<path id="caret1" d="M4 0L0.535898 5.39999L7.4641 5.39999L4 0Z" fill-rule="evenodd" fill="currentColor" />
+							<path id="caret2" d="M4 12L0.535898 6.60001L7.4641 6.60001L4 12Z" fill-rule="evenodd"
+								fill="currentColor" />
+						</svg>
+					</span>
+				</div>
+				<div class="filescan-list-title-item c-time" >Modification Time</div>
+				<!-- <div class="filescan-list-title-item">最后修改时间</div>
+				<div class="filescan-list-title-item">权限变更时间</div> -->
+				<div class="filescan-list-title-item item_formats">
+					<p style="float: left;margin-left:20px" class="formats">Ps</p>
+				</div>
+				<div class="filescan-list-title-item">
+					<p style="float: right;">Opt</p>
+				</div>
+			</div>
+			<div class="filescan-list-body"></div>
+		</div>
+	</div>
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<script src="/static/js/echarts.min.js?version={{g['btwaf_version']}}"></script>
+<script type="text/javascript">
+	// 构造函数：磁盘扫描
+	function DiskAnalysis(config) {
+		this.$el = $(config.el);
+		this.diskPath = bt.get_cookie('diskPath')
+		this.$bgBubbles = this.$el.find('.bg-bubbles')
+		this.$scanHeader = this.$el.find('.scan-header'); // 首页的那个图片
+		this.$scanTitle = this.$el.find('.scan-title'); // 首页的文字标题
+		this.$scanNow = this.$el.find('.scan-now'); // 立即扫描按钮
+		this.$scanAuxiliary = this.$el.find('.scan-auxiliary'); // 历史记录
+		this.$cancelScan = this.$el.find('.cancel-scan'); //
+		this.$scanView = this.$el.find('.scan-view'); //日志
+		this.$fileView = this.$el.find('.file-view'); //磁盘列表
+		this.$fileTableBody = this.$el.find('#fileScanTable .filescan-list-body'); // 文件列表
+		var hrefArr = window.location.href.split('/')
+		this.$scanPath = this.diskPath && (window.location.href.indexOf('/site') || hrefArr[hrefArr.length - 1] === '') ? this.diskPath : '/www/wwwroot'; // 默认扫描目录
+		this.taskId = null; // 任务ID
+		this.id = null; // 扫描刷新任务ID
+		this.taskPath = ''; // 扫描目录
+		this.cutPath = ''; // 当前目录
+		this.taskStatus = false; // 扫描状态
+		this.taskType = 'init'; // 扫描执行阶段
+		this.taskList = {}; // 扫描缓存列表
+		this.isRecycle = false; // 是否开启回收站
+		this.historyList = []; // 历史记录
+		this.taskCancel = false; // 是否取消扫描
+		this.activeFilePath = '';
+		this.ScanConfiguration = { //扫描配置
+			exclude_path_list: "", //排除路径  带，字符串 在发请求时做了转换为数组
+			sort: 'total_asize', //排序方式
+			reverse: true, //排序时候为降序
+			exts: '', //显示以下后缀的文件
+			total_num: '', //显示文件数量
+			show_type: '', //展示类型
+			FilterSet: '',
+			is_exts_exclude: null
+		};
+		this.TemporaryScan = { //临时扫描文件显示的配置
+			total_num: '',
+			exts: ''
+		}
+		this.Show_type = ''; //扫描展示的类型
+		this.scan_id = ''; //扫描id
+		this.btn = '' //判断筛选按钮的
+		this.subpath = '' //子路劲
+		this.overviewObj = {} // 扫描概览列表
+		this.overviewObjExt = {} // 扫描概览后缀列表
+		this.init();
+	}
+
+	DiskAnalysis.prototype = {
+		// 初始化
+		init: function () {
+			var that = this;
+			
+			this.event();
+			that.getScanAllocation()
+			$('.layui-layer-page').css({
+				height: '590px',
+				width: '1100px',
+			});
+			setTimeout(function () {
+				bt_tools.setLayerArea('.layui-layer-page');
+			}, 100);
+			if (window.location.pathname == '/files_ifame') {
+				var $this = $(this);
+				var $path = bt.get_cookie('files_path'); //扫描路径
+				var $scanView = that.$scanView; // 日志
+				var $scanHeader = that.$scanHeader; //头部
+				var $scanTitle = that.$scanTitle; //首页的文字标题
+				var $scanNow = that.$scanNow; //扫描按钮
+				var $scanAuxiliary = that.$scanAuxiliary; //历史记录
+				var $fileView = that.$fileView; //表格
+				var shellView = $scanView.find('pre');
+				$scanHeader.removeClass('init').addClass('scan');
+				$scanAuxiliary.html('cancel scan');
+				$scanView.removeClass('hide').find('pre').css({
+					height: '400px',
+				});
+				$scanNow.hide();
+				that.renderScanTitle(
+					$scanTitle,
+					'Scanning directory:<span class="nowrap" style="max-width:380px;vertical-align: middle;" title="' + $path +
+					'">' + $path + '</span>',
+					true
+				);
+				that.renderScanTitle(shellView, 'Creating scan job\n', true);
+				that.renderScanTitle(shellView, '<span style="display:flex;" class="omit">Directory is being scanned<span>\n');
+				that.taskType = 'scan';
+				that.taskCancel = false;
+				that.createScanTaskRequest(function (rdata) {
+					if (!that.taskCancel) {
+						that.taskStatus = true;
+						if (!rdata.status) {
+							layer.msg(rdata.msg, {
+								icon: rdata.status ? 1 : 2
+							})
+							return $('.scan-auxiliary').trigger('click')
+						};
+
+						//邓
+						that.taskId = rdata.data.scan_id;
+						that.scan_id = rdata.data.scan_id
+						// that.ScanConfiguration.show_type = rdata.data.show_type
+						that.renderScanTitle(shellView, 'Scan is complete, waiting for the scan result to return\n');
+						// 渲染扫描结果
+						that.renderFilesView({
+							id: that.taskId,
+							path: bt.get_cookie('files_path'),
+							init: true,
+							show_type: rdata.data.show_type
+						});
+					}
+				});
+			} else {
+				bt_tools.send({
+					url: '/plugin?action=a&name=disk_analysis&s=get_last_scan_path'
+				}, function (ress) {
+					$('.catalogue').val(ress.data)
+					that.$scanPath = ress.data
+				})
+			}
+			// 获取回收站状态
+			this.getFilesRecycleRequest(function (rdata) {
+				that.isRecycle = rdata.status;
+			});
+		},
+
+		// 事件处理
+		event: function () {
+			var that = this;
+
+			$('.bt-sercer-scan,.bt-system-disk-scan,.scan-now').unbind('click').click(function () {
+				bt.confirm({
+					title:'Scanning',
+					msg:'Scanning requires performance. Do you want to continue?'
+				},
+				function(){
+					var scanType = $(this).data('type')
+					var title = !scanType ? '['+that.$scanPath + '] scan Results ': $(this).text()
+					that.openScan({title: title,scanType: scanType})
+				}
+				)
+				// var scanType = $(this).data('type')
+				// var title = !scanType ? '['+that.$scanPath + '] scan Results ': $(this).text()
+				// that.openScan({title: title,scanType: scanType})
+			})
+			$('.bt-system-garbage').unbind('click').click(function () {
+				that.openGarbageView()
+			})
+
+			// 立即扫描按钮
+			this.bind('.scan-now1', function () {
+				var type = that.taskType;
+				if (type == 'init') {
+					var $this = $(this);
+					var $path = that.$scanPath; //扫描路径
+					var $scanView = that.$scanView; // 日志
+					var $scanHeader = that.$scanHeader; //头部
+					var $scanTitle = that.$scanTitle; //首页的文字标题
+					var $scanNow = that.$scanNow; //扫描按钮
+					var $scanAuxiliary = that.$scanAuxiliary; //历史记录
+					var $fileView = that.$fileView; //表格
+					var shellView = $scanView.find('pre');
+					$scanHeader.removeClass('init').addClass('scan');
+					$scanAuxiliary.html('cancel scan');
+					$scanView.removeClass('hide').find('pre').css({
+						height: '400px',
+					});
+					$scanNow.hide();
+					that.renderScanTitle(
+						$scanTitle,
+						'Scanning directory:<span class="nowrap" style="max-width:380px;vertical-align: middle;" title="' + $path +
+						'">' + $path + '</span>',
+						true
+					);
+					that.renderScanTitle(shellView, 'Creating scan job\n', true);
+					that.renderScanTitle(shellView, '<span style="display:flex;" class="omit">Directory is being scanned<span>\n');
+					that.taskType = 'scan';
+					that.taskCancel = false;
+					that.createScanTaskRequest(function (rdata) {
+						if (!that.taskCancel) {
+
+							that.taskStatus = true;
+							if (!rdata.status) {
+
+								layer.msg(rdata.msg, {
+									icon: rdata.status ? 1 : 2
+								})
+								return $('.scan-auxiliary').trigger('click')
+							};
+
+							//邓
+							that.taskId = rdata.data.scan_id;
+							that.scan_id = rdata.data.scan_id
+							that.ScanConfiguration.show_type = rdata.data.show_type
+							that.renderScanTitle(shellView, 'Scan is complete, waiting for the scan result to return\n');
+							// 渲染扫描结果
+							that.renderFilesView({
+								id: that.taskId,
+								path: that.taskPath,
+								init: true,
+								show_type: rdata.data.show_type
+							});
+						}
+					});
+				} else {
+					that.renderHistoryScan();
+				}
+			});
+			// var hrefArr = window.location.href.split('/')
+			// if (this.diskPath !== '' && (window.location.href.indexOf('/site') || hrefArr[hrefArr.length - 1] === '')) $('.scan-now').click()
+			// 辅助扫描按钮，历史、取消、返回
+			$('.scan-auxiliary').unbind('click').click(function () {
+			// this.bind('.scan-auxiliary', function () {
+				var type = that.taskType;
+				switch (type) {
+					case 'init':
+						that.renderHistoryScan();
+						break;
+					case 'scan':
+						that.taskStatus = false;
+						that.taskCancel = true;
+						that.renderInitView();
+						that.getScanAllocation()
+						break;
+					case 'result':
+						that.subpath = ''
+						that.renderInitView();
+						that.getScanAllocation()
+						break;
+				}
+			});
+			//扫描设置
+			// this.bind('.scan-set',function(){
+			// 	that.btn=''
+			// 	that.getScanAllocation(true)
+
+			// })
+			// 删除文件
+			$('.scan-alarm').unbind('click').click(function () {
+				that.renderAlarm()
+			})
+			$('.remove-files').unbind('click').click(function () {
+			// this.bind('.remove-files', function () {
+				var path = $(this).data('path'),
+					fullpath = $(this).data('fullpath'),
+					filename = $(this).data('filename'),
+					type = $(this).data('type');
+				var _type = $('.Size').data('type')
+				that.delFileDir({
+						path: path,
+						type: type,
+						filename: path,
+					},
+					function (rdata) {
+						// delete that.taskList[that.taskId];
+						that.renderFilesInfo({
+							id: that.taskId,
+							path: that.cutPath,
+							exts: that.ScanConfiguration.exts,
+							total_num: that.ScanConfiguration.total_num,
+							sort: _type,
+							reverse: that.ScanConfiguration.reverse,
+						});
+						// $('#caret1, #caret2').css("color","#CDCDCD")
+						// $('.Size').find('#caret2').css("color","#20A43A")
+						// that.ScanConfiguration.reverse=true
+						// var list = that.taskList[fullpath].list.filter(function (item) { return item.name !== filename.toString() })
+						// that.taskList[fullpath].list = list;
+						// that.renderFilesTable(that.taskList[fullpath], fullpath);
+					}
+				);
+			});
+
+			// 选择扫描路径
+			$('.cursor_ScanPath').unbind('click').click(function () {
+			// this.bind('.cursor_ScanPath', function () {
+				bt.select_path(
+					'diskScanPath',
+					'dir',
+					function (path) {
+						if (path.startsWith("//")) {
+							path = path.slice(1);
+						}
+						that.$scanHeader.find('.catalogue').val(path).attr('title', path);
+						that.$scanPath = (path + '/').replace(/\/\//g, '/');
+					},
+					that.$scanPath
+				);
+			});
+			$('.catalogue').blur(function () {
+				that.$scanPath = $(this).val()
+			})
+			//切换为目录结构
+			$('.Catalogue_show').unbind('click').click(function () {
+			// this.bind('.Catalogue_show', function () {
+				that.ScanConfiguration.show_type = '1'
+				var value = $('#filescan-nav-search .search-input').val()
+				that.renderFilesInfo({
+					id: that.taskId,
+					path: that.subpath,
+					name: value,
+				});
+				$('#screen').hide()
+				$('#caret1, #caret2').css("color", "#CDCDCD")
+				$('.Size').find('#caret2').css("color", "#20A43A")
+				that.ScanConfiguration.reverse = true
+				$('.scan-title').find('.screen_describe').remove()
+			})
+			//切换为文件结构
+			$('.File_show').unbind('click').click(function () {
+				that.ScanConfiguration.show_type = '2'
+				var value = $('#filescan-nav-search .search-input').val()
+				that.renderFilesInfo({
+					id: that.taskId,
+					name: value,
+					path: that.subpath,
+					is_exts_exclude: that.ScanConfiguration.is_exts_exclude,
+					exts: that.ScanConfiguration.exts,
+					total_num: that.ScanConfiguration.total_num,
+					filter_size: that.ScanConfiguration.filter_size,
+				});
+				$('#screen').show()
+				$('#caret1, #caret2').css("color", "#CDCDCD")
+				$('.Size').find('#caret2').css("color", "#20A43A")
+				$('.scan-title').find('.screen_describe').remove()
+				$('.scan-title').append('<div class="screen_describe"><span>' + (that
+						.ScanConfiguration
+						.FilterSet ==
+						'' ? 'Show File Extensions' : that.ScanConfiguration.FilterSet == '1' ?
+						'Show File Extensions' : 'Exclude File Extensions') + ':' + (that.ScanConfiguration.exts == '' ? 'Default' : that.ScanConfiguration
+						.exts) +
+					'</span>&nbsp;&nbsp;&nbsp;<span>File Size:' + (that.ScanConfiguration.filter_size == '' ? 'Total Size' :
+						that.ScanConfiguration.filter_size == '>104857600' ? 'Greater than 100MB' : that.ScanConfiguration
+						.filter_size ==
+						'<104857600' ? 'Less than 100MB' : that.ScanConfiguration.filter_size == '>1073741824' ? 'Greater than 1GB' :
+						that.ScanConfiguration.filter_size == '<1073741824' ? 'Less than 1GB' : 'Total Size') +
+					'</span>&nbsp;&nbsp;&nbsp;<span>Filter File Display Quantity' + that.ScanConfiguration.total_num + '</span></div>')
+				that.ScanConfiguration.reverse = true
+			})
+			//排除路径
+			$('.scan-set').unbind('click').click(function (){
+			// this.bind('#scan-set', function () {
+				that.getScanAllocation(true)
+			})
+			//筛选配置
+			$('.screen').unbind('click').click(function (){
+			// this.bind('#screen', function () {
+				that.renderSwitch()
+			})
+
+			// 打开目录按钮
+			$('.cut-path').unbind('click').click(function (){
+			// this.bind('.cut-path', function () {
+				var path = $(this).data('path'),
+					type = $(this).data('type');
+
+				if (type == 'paichu') return layer.msg('Excluded, not supported for opening at the moment', {
+					icon: 0
+				});
+				if (type !== 'folder' && typeof type != 'undefined') return layer.msg('File not currently supported for opening.', {
+					icon: 0
+				});
+				that.cutScanPath(path,type)
+			});
+			// 双击打开目录
+			$('.filescan-list-item').unbind('dblclick').dblclick(function () {
+			// this.$el.on('dblclick', '.filescan-list-item', function () {
+				$('#filescan-nav-search .search-input').val('')
+				$(this).find('.cut-path:eq(0)').trigger('click');
+			});
+			//右边的搜索
+			$('#filescan-nav-search .search-input').unbind('keyup').keyup(function (e) {
+				var value = $(this).val();
+				if (e.keyCode == 13) {
+					that.renderFilesInfo({
+						id: that.taskId,
+						name: value,
+						path: that.subpath,
+						exts: that.ScanConfiguration.exts,
+						total_num: that.ScanConfiguration.total_num,
+						filter_size: that.ScanConfiguration.filter_size
+					})
+					$('#caret1, #caret2').css("color", "#CDCDCD")
+					$('.Size').find('#caret2').css("color", "#20A43A")
+					that.ScanConfiguration.reverse = true
+				}
+			});
+			$('#filescan-nav-search .result_search').unbind('click').click(function () {
+				var value = $(this).parent().find('.search-input').val();
+				// that.getPlugLogs(that.thatPlugname, value);
+				that.renderFilesInfo({
+					id: that.taskId,
+					name: value,
+					path: that.subpath,
+					exts: that.ScanConfiguration.exts,
+					total_num: that.ScanConfiguration.total_num,
+					filter_size: that.ScanConfiguration.filter_size,
+				})
+				$('#caret1, #caret2').css("color", "#CDCDCD")
+				$('.Size').find('#caret2').css("color", "#20A43A")
+				that.ScanConfiguration.reverse = true
+			});
+			//大小排序
+			// var revers_sort=true
+
+			$('.Size').find('#caret2').css("color", "#20A43A")
+			// $((that.ScanConfiguration.sort=='total_dsize' ? '.Size':'.feile_srot')+(that.ScanConfiguration.reverse ? ' #caret2':' #caret1')).css("color","#20A43A")
+			$('.item_Size').unbind('click').click(function () {
+			// this.bind('.item_Size ', function () {
+				that.ScanConfiguration.reverse = !that.ScanConfiguration.reverse
+				var _type = $('.Size').data('type')
+				$('#caret1, #caret2').css("color", "#CDCDCD")
+				$('.Size').find('#caret' + (!that.ScanConfiguration.reverse ? '1' : '2')).css("color", "#20A43A")
+				that.renderFilesInfo({
+					id: that.taskId,
+					path: that.subpath,
+					reverse: that.ScanConfiguration.reverse,
+					sort: _type,
+					exts: that.ScanConfiguration.exts,
+					total_num: that.ScanConfiguration.total_num,
+					name: $('#filescan-nav-search .search-input').val(),
+					filter_size: that.ScanConfiguration.filter_size,
+					is_exts_exclude: that.ScanConfiguration.is_exts_exclude,
+				})
+				// revers_sort=!revers_sort
+			})
+			var revers_time = false
+			$('.item_file').unbind('click').click(function () {
+			// this.bind('.item_feile ', function () {
+				$('#caret1, #caret2').css("color", "#CDCDCD")
+				var _type = $('.feile_srot').data('type')
+				revers_time = !revers_time
+				$('.feile_srot').find('#caret' + (!revers_time ? '1' : '2')).css("color", "#20A43A")
+				that.renderFilesInfo({
+					id: that.taskId,
+					path: that.subpath,
+					reverse: revers_time,
+					sort: _type,
+					exts: that.ScanConfiguration.exts,
+					total_num: that.ScanConfiguration.total_num,
+				})
+			})
+			//右边的搜索 end
+		},
+
+		cutScanPath:function(path,type){
+			var that = this;
+			$('#filescan-nav-search .search-input').val('')
+			that.subpath = path
+			if (!that.taskList.hasOwnProperty(path)) {
+				that.renderFilesInfo({
+					id: that.taskId,
+					path: path,
+				});
+				$('#caret1, #caret2').css("color", "#CDCDCD")
+				$('.Size').find('#caret2').css("color", "#20A43A")
+				that.ScanConfiguration.reverse = true
+			} else {
+				var rdata = that.taskList[path];
+				that.renderFilesTable(rdata, path); // 渲染文件表格
+				that.renderFilesPath(path); // 渲染文件路径
+			}
+		},
+		// 打开弹窗扫描
+		openScan: function (obj) {
+			var that = this;
+			that.getScanOverview({scanType: obj.scanType,init: obj.init},function (res) {
+				that.overviewObj = res
+				bt_tools.open({
+					title: obj.title,
+					btn: false,
+					skin: 'DiskAnalysis',
+					area: ['1000px','720px'],
+					content: '<div class="bt-tabs">\
+										<div class="bt-w-menu pull-left">\
+											<p>Analysis Report</p>\
+											<p>Analyze Usage</p>\
+											<p>File List</p>\
+											<p>All Files</p>\
+										</div>\
+										<div class="bt-w-con">\
+											<div class="con-box scan-result-view">\
+												<div class="scan-result-view-top">\
+													<div class="flex-1">\
+														<div class="scan-info-des">Scan time:<span class="result-time">November 3, 2023</span>，scanned a total of <span class="result-file-dir">8,888</span> directories,<span class="result-file-num">8,888</span>files, with a total size of <span class="result-file-size">8,888MB</span></div>\
+													</div>\
+												</div>\
+												<div class="scan-result-content">\
+													<div class="scan-result-des hide">Based on the scan results, the current disk usage has the following issues, with two items occupying excessive space. You can view and try to resolve the usage issues.</div>\
+													<div class="scan-result-body"></div>\
+												</div>\
+											</div>\
+											<div class="con-box">\
+												<div class="typeCut">\
+													<div class="btn-group" data-box="0">\
+														<button type="button" class="btn btn-sm btn-success" data-type="type">File Type</button>\
+														<button type="button" class="btn btn-sm btn-default" data-type="ext">File Extension</button>\
+													</div>\
+													<div class="ml10 flex" style="align-items: center;">*Click the corresponding statistical chart block to jump to the corresponding file directory.</div>\
+												</div>\
+												<div class="overAuto"><div id="result-bar-chart"></div></div>\
+												<button class="btn btn-success btn-sub-success btn-sm view-file-details mt10 hide">View categorized file details.</button>\
+											</div>\
+											<div class="con-box file-view"></div>\
+											<div class="con-box file-view"></div>\
+										</div>\
+									</div>',
+					success: function (layers) {
+						// <p>分析占比</p>\
+						// <div class="con-box">\
+						// 						<div class="typeCut">\
+						// 							<div class="btn-group" data-box="1">\
+						// 								<button type="button" class="btn btn-sm btn-success" data-type="type">文件类型</button>\
+						// 								<button type="button" class="btn btn-sm btn-default" data-type="ext">文件后缀</button>\
+						// 							</div>\
+						// 						</div>\
+						// 						<div class="overAuto"><div id="scan-result-chart"></div></div>\
+						// 					</div>\
+						$('.typeCut button').unbind('click').click(function () {
+							var box = $(this).parent().data('box'),type = $(this).data('type')
+							$(this).addClass('btn-success').removeClass('btn-default').siblings().removeClass('btn-success').addClass('btn-default')
+							$('.overAuto').html('<div id="result-bar-chart"></div>')
+							that.renderBarChart(that.overviewObj,$(this).index())
+							// if(type === 'type') {// 文件类型
+							// 	if(box) that.renderResultChart(that.overviewObj)
+							// 	else that.renderBarChart(that.overviewObj)
+							// }else {// 文件后缀类型
+							// 	if($.isEmptyObject(that.overviewObjExt)) {
+							// 		// that.getScanOverview({scanType: obj.scanType,init: 'true',overviewType: type},function (resD) {
+							// 			that.overviewObjExt = that.overviewObj
+							// 			if(box) that.renderResultChart(that.overviewObjExt)
+							// 			else that.renderBarChart(that.overviewObjExt)
+							// 		// })
+							// 	}else {
+							// 		if(box) that.renderResultChart(that.overviewObjExt)
+							// 		else that.renderBarChart(that.overviewObjExt)
+							// 	}
+							// }
+						})
+						$('.file-view').html($('#DiskAnalysis .file-view').html())
+						that.$fileView = $(layers).find('.file-view'); //磁盘列表
+						that.$fileTableBody = $(layers).find('#fileScanTable .filescan-list-body'); // 文件列表
+						var $scanResultView = $('.scan-result-view')
+						$(layers).find('.bt-w-menu p').click(function () {
+							$(this).addClass('bgw').siblings().removeClass('bgw')
+							var pIndex = $(this).index()
+							$('.con-box').eq(pIndex).show().siblings().hide()
+							switch (pIndex) {
+								case 0:
+									$('.result-time').html(that.overviewObj.overview.scan_time)
+									$('.result-file-dir').html(that.overviewObj.overview.dir_num)
+									$('.result-file-num').html(that.overviewObj.overview.file_num)
+									$('.result-file-size').html(bt.format_size(that.overviewObj.overview.total_asize))
+									that.renderResultContent(that.overviewObj)
+									that.ScanConfiguration.show_type = '0'
+									break;
+								case 1:
+									var indexs = $('.typeCut button.btn-success').index()
+									that.renderBarChart(that.overviewObj,indexs)
+									that.ScanConfiguration.show_type = '0'
+									break;
+								case 2:
+									that.ScanConfiguration.show_type = '1'
+									// 渲染扫描结果
+									that.renderFilesView({
+										id: that.taskId,
+										path: that.taskPath,
+										init: obj.hasOwnProperty('init') ? obj.init : true,
+										show_type: '1'
+									});
+									that.event()
+									break;
+								case 3:
+									that.ScanConfiguration.show_type = '2'
+									// 渲染扫描结果
+									that.renderFilesView({
+										id: that.taskId,
+										path: that.taskPath,
+										init: obj.hasOwnProperty('init') ? obj.init : true,
+										show_type: '2'
+									});
+									that.event()
+									break
+								default:
+									break;
+							}
+						})
+						$(layers).find('.bt-w-menu p').eq(0).click()
+
+						$('.view-file-details').unbind('click').click(function () {
+							bt_tools.open({
+								title: 'Categorized File Details',
+								area: ['900px','600px'],
+								btn: false,
+								content: '<div class="bt-tabs">\
+										<div class="bt-w-menu pull-left">\
+											<p>System File</p>\
+											<p>PIC</p>\
+											<p>Video</p>\
+											<p>Audio</p>\
+											<p>Package</p>\
+											<p>SCRIPT</p>\
+											<p>Logs</p>\
+											<p>Cache File</p>\
+											<p>Other(summary)</p>\
+										</div>\
+										<div class="bt-w-con">\
+											<div class="file-details-content pd20"></div>\
+										</div>\
+									</div>',
+								success: function (layero) {
+									$(layero).find('.bt-w-menu p').click(function () {
+										$(this).addClass('bgw').siblings().removeClass('bgw')
+										$('.file-details-content')
+										bt_tools.table({
+											el: '.file-details-content',
+											data: [],
+											default: 'Empty list.',
+											column: [
+												{
+													fid: 'name',
+													title: 'File name.',
+												}
+											]
+										})
+									})
+									$(layero).find('.bt-w-menu p').eq(0).click()
+								}
+							})
+						})
+					}
+				})
+			})
+		},
+		// 扫描概览
+		getScanOverview: function (obj,callback) {
+			var that = this
+			var load = layer.msg('Retrieving analysis results. It may take about 1 minute. Please wait...',{area:['500px','auto'],icon:16,time:0,closeBtn :1,shade:0.3})
+			// var load = bt.load('正在获取扫描结果概览信息，可能需要1分钟左右，请耐心等候，请稍后...')
+			if(obj.init !== undefined || obj.hasOwnProperty('overviewType')) {
+				bt_tools.send({url: '/plugin?action=a&name=disk_analysis&s=get_scan_overview',data: {scan_id: that.taskId,overview_type: obj.overviewType || 'type'}},function (res) {
+					layer.close(load)
+					that.taskPath = res.scan_info.scan_path
+					if(callback) callback(res)
+				})
+			}else {
+				that.createScanTaskRequest({scanType: obj.scanType},function (rdata) {
+					that.taskId = rdata.data.scan_id;
+					that.scan_id = rdata.data.scan_id
+					that.Show_type = rdata.data.show_type
+					bt_tools.send({url: '/plugin?action=a&name=disk_analysis&s=get_scan_overview',data: {scan_id: that.taskId,overview_type: obj.overviewType || 'type'}},function (res) {
+						layer.close(load)
+						if(callback) callback(res)
+					})
+				})
+			}
+		},
+		// 渲染条形图表
+		renderBarChart: function (res,type) {
+			var _that = this,overview_list = !type ? res.overview.type_list : res.overview.ext_list, scanType = type ? 1 : 2
+			var ydata = [],sdata = [],moreSdataList = [],more = {name: '',size: 0}
+			var cutType = !$('.typeCut button:eq(1)').hasClass('btn-success')
+			overview_list.sort(function(a,b){ //排序
+				return a.total_asize - b.total_asize
+			})
+			for (var i = 0; i < overview_list.length; i++) {
+				// if(overview_list.length > 10 && i > 9) {
+				// 	moreSdataList.push({
+				// 		name: overview_list[i].name,
+				// 		size: overview_list[i].total_asize,
+				// 		fileNum: overview_list[i].file_num
+				// 	})
+				// 	more.name = '更多'
+				// 	more.size = more.size + overview_list[i].total_asize
+				// }else {
+					ydata.push(overview_list[i].name)
+					sdata.push(overview_list[i].total_asize)
+				// }
+			}
+			$('#result-bar-chart').height(overview_list.length * 40)
+			// ydata.reverse();
+			// sdata.reverse();
+			// if(more.name) {
+			// 	ydata.unshift(more.name)
+			// 	sdata.unshift(more.size)
+			// }
+ 			var chart = echarts.init(document.getElementById('result-bar-chart'))
+			var option = {
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: {
+						type: 'shadow'
+					},
+					formatter: function(params) {
+						// if(params[0].name === '更多') {
+						// 	var _html = '',fileNum = 0
+						// 	for (var i = 0; i < moreSdataList.length; i++) {
+						// 		_html += '<br><b>'+ moreSdataList[i].name+'</b>： 大小：'+ bt.format_size(moreSdataList[i].size) + '，文件数：'+ moreSdataList[i].fileNum						
+						// 		fileNum += fileNum + moreSdataList[i].fileNum
+						// 	}
+						// 	return '<b>'+params[0].name+'</b><br>'+ params[0].marker +'大小：'+ bt.format_size(params[0].value) + '<br>'+ params[0].marker +'文件数：'+ fileNum + '<br><br>----------包含以下信息----------<br>' + _html
+						// }else {
+							// 自定义提示框的内容
+							var items =  overview_list.find(function (item) { return item.name === params[0].name}),_html1 = '',_html2 = ''
+							if(scanType === 2) {
+								_html2 = items.desc ? '<br>' + params[0].marker + 'Description: '+items.desc : ''
+							}else if (scanType === 1) {
+								if(cutType) _html1 = '<br>' + params[0].marker + 'Path: '+items.path
+							}
+							return  '<b>'+params[0].name+'</b>'+ _html1 + '<br>'+ params[0].marker +'Size: '+ bt.format_size(params[0].value) + '<br>'+ params[0].marker +'File count: '+ items.file_num + _html2
+						// }
+          }
+				},
+				grid: {
+					left: '5%',
+					right: '5%',
+					bottom: '3%',
+					top: '3%',
+					containLabel: true
+				},
+				xAxis: {
+					type: 'value',
+					show: false,
+					boundaryGap: [0, 0.01]
+				},
+				yAxis: {
+				  axisLine: {
+            show: false  // 隐藏 y 轴轴线
+          },
+          axisTick: {
+            show: false  // 隐藏 y 轴刻度
+          },
+					type: 'category',
+					data: ydata,
+					axisLabel: {
+						interval: 0, // 强制显示所有标签
+					},
+				},
+				series: [
+					{
+						type: 'bar',
+						data: sdata,
+						itemStyle: {
+							color: function(params) {
+								var colorList = ['#c23531','#2f4554','#61a0a8','#d48265','#91c7ae','#749f83','#ca8622','#bda29a','#6e7074']
+								return colorList[params.dataIndex%9];
+							}
+						},
+						label: {
+              show: true,
+              position: 'right',
+              formatter: function(params) {
+                // 获取相关信息
+                const info = bt.format_size(params.data);
+                return info;
+              }
+            }
+					}
+				],
+			}
+			chart.setOption(option)
+			chart.on('click', function(params) {
+				if(cutType){
+					var path = overview_list[params.dataIndex].path
+					_that.activeFilePath = path
+					$('.bt-tabs .bt-w-menu p:eq(2)').click()
+				}
+			});
+		},
+		// 渲染环形图表
+		renderResultChart: function (res) {
+			var _that = this,overview_list = res.overview.overview_list
+			if(overview_list.length > 14) $('#scan-result-chart').height(520 + (overview_list.length%11)*40)
+			var data = []
+			for (var i = 0; i < overview_list.length; i++) {
+				data.push({name: overview_list[i].name,value: overview_list[i].percent})
+			}
+			var chart = echarts.init(document.getElementById('scan-result-chart'))
+			var option = {
+				legend: {
+					right: '100px',
+				},
+				toolbox: {
+					show: true,
+					feature: {
+						mark: { show: true },
+						restore: { show: true },
+						saveAsImage: { show: true }
+					}
+				},
+				series: {
+					type: 'pie',
+					radius: [50, 150],
+					height: '100%',
+					center: ['50%', '60%'],
+					// roseType: 'area',
+					itemStyle: {
+						borderColor: '#fff',
+						borderWidth: 1,
+						borderRadius: 8
+					},
+					label: {
+						// alignTo: 'edge',
+						formatter: '{name|{b}}\n{time|占比：{c} %}',
+						minMargin: 5,
+						edgeDistance: 10,
+						lineHeight: 15,
+						rich: {
+							time: {
+								fontSize: 10,
+								color: '#999'
+							}
+						}
+					},
+					labelLine: {
+						length: 15,
+						length2: 0,
+						maxSurfaceAngle: 80
+					},
+					data: data,
+				},
+			}
+			chart.setOption(option)
+		},
+		renderResultContent: function (res) {
+			var that = this,report_list = res.overview.report_list
+			var classList = ['red','org'],acticeList = [0]
+			var file_scan = []
+			$('.scan-result-item').each(function (index,item) {
+				if($(item).hasClass('active')) {
+					acticeList.push(index)
+				}else {
+					acticeList = acticeList.filter(function (items) { return items !== index})
+				}
+			})
+			report_list.sort((a, b) => {
+				if(typeof a.color === 'undefined') a.color = 'undefined'
+				if(typeof b.color === 'undefined') b.color = 'undefined'
+				const order = { 'red': 3, 'org': 2, '': 1, 'undefined': 1 };
+				return order[b.color] - order[a.color];
+			});
+			$('.scan-result-body').empty()
+			for (var i = 0; i < report_list.length; i++) {
+				var items = report_list[i]
+				$('.scan-result-body').append('<div class="scan-result-item '+ (acticeList.indexOf(i) !== -1 ? 'active' : '') +'">\
+					<div class="scan-result-item-header">\
+						<div style="display:flex;align-items:center">\
+							<span class="down-icon"></span>\
+							<div class="type-tag '+ (items.hasOwnProperty('color') ? items.color : '') +'">'+ items.name +'</div>\
+							<div>'+ items.desc +'</div>\
+						</div>\
+						<div class=""><button class="btn btn-success btn-sm btn-sub-success hide del_checkox_file">Delete Selected</button></div>\
+					</div>\
+					<div class="scan-result-item-body '+ (acticeList.indexOf(i) !== -1 ? '' : 'hide') +'"><div class="resultTable"></div></div>\
+				</div>')
+				file_scan.push(bt_tools.table({
+					el: '.scan-result-item:eq('+ i +') .resultTable',
+					data: items.list,
+					column: [
+						{
+							fid: 'name',
+							title: 'File Name',
+							width: 160,
+							template: function (row) {
+								return '<div title="'+ row.name +'" style="width: 180px;" class="flex align-center">\
+									<span class="file-type-icon '+ (row.type ? 'file_folder' : 'file_icon') +'"></span>\
+									<div class="flex-1 ellipsis">'+ row.name +'</div></div>'
+							}
+						},
+						{
+							fid:'ps',
+							title: 'Type',
+							width: 80,
+							template:function(row){
+								return '<span style="display:inline-flex;width:180px;">' + row.ext +'</span>'
+							}
+						},
+						{
+							fid:'full_path',
+							title: 'Path',
+							width: 60,
+							template:function(row){
+								return '<a class="btlink open_full_path" title="'+ row.full_path +'">Check</a>'
+							},
+						},
+						{
+							fid: 'asize',
+							title: 'Size',
+							width: 40,
+							template: function (row) {
+								return '<span>'+ bt.format_size(row.asize) +'</span>'
+							}
+						},
+						{
+							fid: 'mtime',
+							title: 'Modified Time',
+							width: 120
+						},
+						{
+							title: 'Opt',
+							type: 'group',
+							align: 'right',
+							width: 110,
+							group: [
+								{
+									title: 'Edit',
+									template: function (row, _that) {
+										if((row.asize / 1024 / 1024) > 200) return ''
+										return row.type ? '' : 'Edit';
+									},
+									event: function (row, index, ev, key, _that) {
+										if(!row.type){
+											if((row.asize / 1024 / 1024) > 200) return layer.msg('The current file is too large and cannot be opened at the moment.',{icon:0})
+											bt.pub.on_edit_file(0, row.full_path);
+										}
+									}
+								},
+								{
+									title: 'Del',
+									event: function (row,index, ev) {
+										that.delFileDir({
+											path: row.full_path,
+											type: row.type ? 'Directories' : 'Files',
+											filename: row.name,
+										},
+										function (rdata) {
+											if(rdata.status) {
+												var indexs = $(ev.currentTarget).parents('.scan-result-item').index()
+												that.overviewObj.overview.report_list[indexs].list.splice(index, 1);
+												that.renderResultContent(that.overviewObj)
+											}
+										})
+									}
+								}
+							]
+						}
+					],
+					success:function () {
+						$('.scan-result-item .resultTable .divtable').css('border','none')
+						$('.open_full_path').unbind('click').click(function(){
+							var path = $(this).attr('title')
+							let pathParts = path.split('/');
+							pathParts.pop();  // 移除最后一个元素，即文件名
+							let directory = pathParts.join('/');
+							that.activeFilePath = directory
+							$('.bt-tabs .bt-w-menu p:eq(2)').click()
+						})
+					}
+				}))
+			}
+
+			$('.del_checkox_file').click(function(){
+
+				return false
+			})
+			$('.scan-result-des').html('Based on the scan results, the current disk usage has the following issues, with two items occupying excessive space. You can view and try to resolve these usage problems.')
+			$('.scan-result-item-header').click(function () {
+				var next = $(this).next(),parent = $(this).parent()
+				if(next.hasClass('hide')) {
+					next.removeClass('hide')
+					parent.addClass('active')
+				}else {
+					next.addClass('hide')
+					parent.removeClass('active')
+				}
+				
+			})
+		},
+
+		// 初始化数据
+		initData: function () {
+			this.taskId = null; // 任务ID
+			this.id = null; // 扫描刷新任务ID
+			this.taskPath = ''; // 扫描目录
+			this.cutPath = ''; // 当前目录
+			this.taskStatus = false; // 扫描状态
+			this.taskType = 'init'; // 扫描执行阶段
+			this.taskList = {}; // 扫描缓存列表
+		},
+
+		/**
+		 * @description 渲染扫描初始化页面
+		 */
+		renderInitView: function () {
+			var that = this;
+			this.initData();
+			this.$scanHeader.removeClass('result scan').addClass('init');
+			this.$scanHeader.find('.scan-title').html('Analyze directory size');
+			this.$scanNow.show().html('Scan now');
+			this.$scanAuxiliary.html('History record');
+			this.$scanView.addClass('hide');
+			this.$fileView.addClass('hide');
+			this.$bgBubbles.find('li').css({
+				'animation-play-state': 'running',
+				'-webkit-animation-play-state': 'running'
+			})
+		},
+
+		/**
+		 * @description 渲染扫描页面
+		 * @param {object} data 配置参数
+		 */
+		renderFilesView: function (data) {
+			var that = this;
+			that.renderFilesInfo({
+					id: data.id,
+					path: data.path || '',
+					init: data.init || false,
+					show_type: data.show_type || '1',
+					name: data.name || ''
+				},
+				function (rdata) {
+					that.taskType = 'result';
+					that.renderFilesPath(data.path);
+					if(that.activeFilePath){
+						that.cutScanPath(that.activeFilePath,'folder')
+						that.activeFilePath = ''
+					}
+					// that.$scanView.addClass('hide').find('pre').animate({
+					// 	height: '0px'
+					// }, 100);
+					// that.$scanNow.show().html('历史记录');
+					// that.$scanAuxiliary.html('返回首页');
+					// that.$fileView.removeClass('hide');
+					// that.$scanHeader.removeClass('scan init').addClass('result');
+					// that.renderScanTitle(
+					// 	that.$scanTitle,
+					// 	'<span class="scan-result">扫描目录：</span><span class="nowrap " style="max-width:180px;vertical-align: middle;color:#666666;font-size:16px" title="' +
+					// 	that.taskPath +
+					// 	'">' +
+					// 	that.taskPath +
+					// 	'</span>&nbsp;&nbsp;' +
+					// 	'<span class="scan-result" style="font-size:16px">扫描时间：' +
+					// 	bt.format_data(rdata.scan_time) +
+					// 	'</span>' +
+					// 	'<span class="scan-result" style="font-weight: 400;">共扫描到：' +
+					// 	rdata.file_num +
+					// 	'个文件，总大小：' +
+					// 	bt.format_size(rdata.total_asize) +
+					// 	'</span>' +
+					// 	'',
+					// 	true
+					// );
+				}
+			);
+		},
+
+		/**
+		 * @description 渲染文件列表 
+		 * @param {Object} param 请求参数
+		 * @param {Function} callback 回调函数
+		 */
+		renderFilesInfo: function (param, callback) {
+			var that = this;
+			if (that.ScanConfiguration.show_type == '1') {
+				$('.Catalogue_show').addClass('btn-click').removeClass('bt-cp1-hover')
+				$('.File_show').removeClass('btn-click').addClass('bt-cp2-hover')
+				$('.screen_scan').hide()
+			}
+			if (that.ScanConfiguration.show_type == '2') {
+				$('.File_show').addClass('btn-click').removeClass('bt-cp2-hover')
+				$('.Catalogue_show').removeClass('btn-click').addClass('bt-cp1-hover')
+				$('.screen_scan').show()
+			}
+			if (that.ScanConfiguration.show_type !== '2') {
+				this.getScanHistoryRequest(param, function (res) {
+					var rdata = res.data
+					var path = rdata.full_path;
+					path = path.replace(/(\\)+/g, '/');
+					if (param.init) that.taskPath = path;
+					if (!that.taskList.hasOwnProperty(path)) that.taskList[path] = rdata; //保存每个路径下的数据
+					that.renderFilesTable(rdata, path); // 渲染文件表格
+					that.renderFilesPath(path); // 渲染文件路径
+					if (callback) callback(rdata); // 回调函数
+				});
+			} else {
+				this.getScanFileRequest(param, function (res) {
+					var rdata = res.data
+					var path = rdata.full_path;
+					path = path.replace(/(\\)+/g, '/');
+					if (param.init) that.taskPath = path;
+					// if (!that.taskList.hasOwnProperty(path)) that.taskList[path] = rdata;
+					that.renderFilesTable(rdata, path); // 渲染文件表格
+					that.renderFilesPath(path); // 渲染文件路径
+					if (callback) callback(rdata); // 回调函数
+				})
+			}
+
+			that.$bgBubbles.find('li').css({
+				'animation-play-state': 'paused',
+				'-webkit-animation-play-state': 'paused',
+				'border': '1px soild #000'
+			})
+		},
+
+		/**
+		 * @description 渲染文件追加功能
+		 * @param {Element} el 控制器
+		 * @param {String} html 文本
+		 * @param {Boolean} isCover 是否覆盖，默认不覆盖
+		 */
+		renderScanTitle: function (el, html, isCover) {
+			var $el = typeof el === 'string' ? this.$el.find(el) : el;
+			if (isCover) {
+				$el.html(html);
+			} else {
+				$el.append(html);
+			}
+		},
+
+		/**
+		 * @description 渲染文件表格结构
+		 * @param {Object} rdata 数据
+		 * @param {String} path 路径
+		 *
+		 */
+		renderFilesTable: function (rdata, path) {
+			var _that = this
+			// if (_that.ScanConfiguration.show_type == '1') {
+			// 	$('.item_feile').css('display', 'block')
+			// 	$('.formats').css('margin-left', '0')
+			// 	// $('.item_formats').css('width', '153px')
+			// 	// $('.c-time').css('width', '150px')
+			// 	$('.c-time').css('padding-left', '10px')
+			// } else {
+			// 	$('.item_feile').css('display', 'none')
+			// 	$('.feile_srot').data("type", "mtime")
+			// 	$('.formats').css('margin-left', '18px')
+			// 	$('.c-time').css('width', '158px')
+			// 	$('.c-time').css('padding-left', '31px')
+			// }
+			var list = rdata.list;
+			var html = '';
+			for (var i = 0; i < list.length; i++) {
+				var element = list[i];
+				var item = rdata.list[i];
+				var isDir = item.type == 1;
+				var iconType = item.type == 1 ? 'folder' : item.type == 0 ? 'icon' : rdata.list[i].ext == 'txt' ? 'icon' :
+					rdata.list[i]
+					.ext == 'zip' ?
+					'zip' : rdata.list[i].ext == 'gz' ? 'gz' : rdata.list[i].ext == 'html' ? 'html' : rdata.list[i].ext ==
+					'rar' ? 'rar' : 'icon'
+				var isImg = rdata.list[i].ext == 'jpg' || rdata.list[i].ext == 'png'
+				var isRemove = "";
+				if (item.excluded) {
+					isRemove = '<a style="color: #666666;">' +
+						"Excluded." +
+						'</a>'
+				} else if (item.status == 1) {
+					isRemove = item.is_delete ? '<a href="javascript:;" data-filename="' + item.name + '" data-fullpath="' +
+						rdata.full_path + '" data-path="' + (item.full_path) + '" data-type="' + (isDir ? 'folder' : 'files') +
+						'" class="btlink remove-files">Delete</a>' : '<p style="display:inline-block;color:#666666;text-decoration: line-through;" title="Key directory, cannot be deleted directly">Delete</p>'
+				} else {
+					isRemove = '<a style="color: #666666;">' +
+						"Deleted" +
+						'</a>'
+				}
+				isR = item.ps ? item.ps : '-'
+				html +=
+					'<div class="filescan-list-item" data-path="' +
+					(path + '/' + item.name) +
+					'">' +
+					'<div class="filescan-list-col text-left nowrap" title="' +
+					(isDir ? (path + '/' + item.name) : item.full_path) +
+					'">' +
+					(isImg ? '<img class="file_images" src="' + item.base64 + '"></img>' :
+						'<span class="file-type-icon file_' + iconType +
+						'"></span>') +
+					'<a class="path cut-path cursor" data-type="' + (
+						!item.excluded ?
+						(isDir ? 'folder' : 'files') : 'paichu') +
+					'" data-path="' +
+					(path + '/' + item.name) +
+					'">' +
+					item.name +
+					'</a>' +
+					'<div class="title_hover" style="display:none">Path:&nbsp;&nbsp' + item.full_path + '</div>' +
+					'</div>' + (item.excluded ? '<div class="filescan-list-col asize" style="text-align:left">' +
+						'<div class="asize_item" >--</div>' +
+						'</div>' :
+						'<div class="filescan-list-col asize" style="text-align:left">' +
+						'<div class="asize_item">' +
+						bt.format_size(isDir ? item.total_asize : item.asize) +
+						'</div>' +
+						'</div>') +
+					(_that.ScanConfiguration.show_type == '1' ?
+						'<div class="filescan-list-col file_num" style="text-align:left">' +
+						'<p style="width:70px">' + (isDir ? (item.file_num || '0') : '--') +
+						'</p></div>' : '<div class="filescan-list-col item_file"></div>') +
+					'<div class="filescan-list-col" >' +
+					(item.atime || "--") +
+					'</div>' +
+					'<div class="filescan-list-col" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;padding-left:20px" title="' +
+					isR + '">' + isR + '</div>' +
+					'<div class="filescan-list-col text-right">' +
+					'<a href="javascript:;" data-type="' +
+					(isDir ? 'folder' : 'files') +
+					'"  data-path="' +
+					(path + '/' + item.name) +
+					'" class="cut-path btlink ' +
+					(isDir && !item.excluded ? 'show' : 'hide') +
+					' ">Open</a>' +
+					(isDir && !item.excluded ? '&nbsp;&nbsp;|&nbsp;&nbsp;' : '') +
+					isRemove +
+					'</div>' +
+					'</div>';
+			}
+			this.$fileTableBody.html(html);
+			if (_that.ScanConfiguration.show_type === '1') {
+				$('.asize').css('padding', '0 15px')
+				$('.item_file').show()
+				$('#file-header-style').remove()
+				$('#fileScanTable').append('<style id="file-header-style">.filescan-list-col:nth-child(1), .filescan-list-title-item:nth-child(1) {width: 200px;}</style>')
+			} else {
+				$('.asize').css('padding', '0 15px')
+				$('#fileScanTable').append('<style id="file-header-style">.filescan-list-col:nth-child(1), .filescan-list-title-item:nth-child(1) {width: 300px;}</style>')
+				$('.filescan-list-title-item:eq(0),.filescan-list-col:eq(0)').css('width','300px')
+				$('.item_file').hide()
+
+			}
+			this.event()
+		},
+
+		/**
+		 * @description 渲染文件路径
+		 * @param {String} path 路径
+		 */
+		renderFilesPath: function (path) {
+			var that = this;
+			var html = '';
+			var newPath = '';
+			var pathArr = [];
+			var isLevel = false;
+			var isInit = true;
+			that.cutPath = path;
+			pathArr = path.replace(this.taskPath.replace(/(\/\/)+/g, '/'), '').split('/');
+			if (pathArr.length >= 1 && pathArr[0] !== '') pathArr.unshift('');
+			if (pathArr.length > 1 && pathArr[1] !== '') {
+				var upperPath = (that.getDirPath(path, false) + '/').replace(/(\/\/)+/g, '/');
+				if (pathArr.length > 1) upperPath = upperPath.replace(/\/$/g, '');
+				isLevel = true;
+				html += '<a class="filescan-nav-item btlink return-btn cut-path" data-path="' + upperPath +
+					'" title="Back">Back</a>' + '<span class="divider">|</span>';
+			}
+			if (pathArr.length > 3) isInit = true;
+			for (var i = 0; i < pathArr.length; i++) {
+				var element = pathArr[i];
+				newPath += '/' + element;
+				if (element === '' && i > 0) continue;
+				if (i > 1 && i < pathArr.length - 1 && pathArr.length > 2) {
+					if (isInit) html += '<a class="filescan-nav-item" title="Some directories have been omitted">...</a><span class="divider">></span>';
+					isInit = false;
+				} else {
+					var isLast = pathArr.length - 1 === i;
+					var isFirst = i === 0;
+					var currentPath = isFirst ? that.taskPath : that.taskPath + newPath;
+					var divider = !isLast ? '<span class="divider">></span>' : '';
+					var menuPath = isFirst ? 'Current directory(' + that.taskPath + ')' : element;
+					currentPath = currentPath.replace(/\/\//g, '/');
+					html +=
+						'<a class="filescan-nav-item nowrap ' + (isLevel && !isLast ? 'btlink cut-path' : '') + (isFirst ?
+							' present' : '') + '" data-path="' + currentPath + '" title="' + currentPath.replaceAll('//', '/') +
+						'">' + menuPath + '</a>' + divider;
+				}
+			}
+			$('.fileScanPath').html(html);
+			that.event()
+		},
+
+		/**
+		 * @description: 渲染扫描配置
+		 * @return {*}
+		 */
+
+		renderScanAllocation: function () {
+			var _that = this;
+			var uploadForm = null
+			bt_tools.open({
+				title: 'Exclude paths',
+				area: ['540px', '290px'],
+				btn: ['Save', 'Cancel'],
+				skin: 'scan_set',
+				content: '<div id="scan_disposition" style="padding-left:25px;padding-top:20px"></div>',
+				success: function (layero, indexs) {
+					uploadForm = bt_tools.form({
+						el: '#scan_disposition',
+						data: _that.ScanConfiguration,
+						form: [{
+								formLabelWidth: '87px',
+								group: {
+									type: 'textarea',
+									name: 'val',
+									width: '260px',
+									placeholder: 'www/xxx\nwww/yyy',
+									unit: '<i class="glyphicon glyphicon-folder-open" style="cursor:pointer;margin-left:10px;top:-85px;font-size:16px" id="excludeUpload"></i>',
+									style: {
+										'min-height': '100px',
+										'line-height': '22px',
+										'padding-top': '5px',
+										'resize': 'none'
+									},
+									value: rdata = _that.ScanConfiguration.exclude_path_list.replace(new RegExp(/(,)/g),
+										'\n'),
+									blur: function (formData) {
+										_that.ScanConfiguration.exclude_path_list = _that.removeDuplicates(formData.val
+											.replace(new RegExp(/(\r\n)/g), ','))
+									}
+								}
+							},
+							{
+								label: 'Scan Display Mode',
+								formLabelWidth: '140px',
+								display: false,
+								group: {
+									type: 'button',
+									name: 'division_line',
+									width: '110px',
+									style: {
+										'opacity': '0'
+									}
+									// display:false,
+								}
+							},
+							{
+								label: 'Display Mode',
+								formLabelWidth: '140px',
+								display: false,
+								group: [{
+										type: 'button',
+										name: 'show_Name',
+										title: 'Directory Structure',
+										style: {
+											'border-radius': '2px',
+											'border-top-right-radius': '0',
+											'border-bottom-right-radius': "0"
+										},
+										event: function (formData, element, that) {
+											$('[name="show_Name"]').addClass('btn-click').removeClass('bt-cp-hover')
+											$('[name="show_Name2"]').removeClass('btn-click').addClass('bt-cp-hover')
+											_that.ScanConfiguration.show_type = '1'
+
+											that.config.form[4].display = false;
+											that.config.form[5].display = false;
+											that.$replace_render_content(4)
+											that.$replace_render_content(5)
+										}
+									},
+									{
+										type: 'button',
+										name: 'show_Name2',
+										title: 'Show All Files',
+										style: {
+											'border-radius': '3px',
+											'border-top-left-radius': '0',
+											'border-bottom-left-radius': "0"
+										},
+										event: function (formData, element, that) {
+											// 触发submit
+											$('[name="show_Name2"]').addClass('btn-click').removeClass('bt-cp-hover')
+											$('[name="show_Name"]').removeClass('btn-click').addClass('bt-cp-hover')
+											_that.ScanConfiguration.show_type = '2'
+											that.config.form[4].display = true;
+											that.config.form[5].display = true;
+											that.$replace_render_content(4)
+											that.$replace_render_content(5)
+										}
+									}
+								]
+							},
+							{
+								label: 'File Filter Settings',
+								formLabelWidth: '140px',
+								// display:_that.ScanConfiguration.show_type=="1" ? false : true,
+								display: false,
+								group: {
+									type: 'FilterSet',
+									name: '',
+									list: [{
+											value: '1',
+											title: 'Display Specified Extension Files'
+										},
+										{
+											value: '0',
+											title: 'Exclude Specified Extension Files'
+										},
+									],
+									placeholder: 'Select filter method',
+									// value:_that.ScanConfiguration.exts,
+									change: function () {
+
+									}
+								}
+							},
+							{
+								label: 'Show Extension Files',
+								formLabelWidth: '140px',
+								// display:_that.ScanConfiguration.show_type=="1" ? false : true,
+								display: false,
+								group: {
+									type: 'text',
+									name: 'SuffixName',
+									placeholder: 'zip|json',
+									value: _that.ScanConfiguration.exts,
+									blur: function (formData, element, that) {
+										_that.ScanConfiguration.exts = formData.SuffixName
+									},
+								}
+							},
+							{
+								label: 'Display File Quantity',
+								formLabelWidth: '140px',
+								// display:(_that.ScanConfiguration.show_type=="1" ? false : true),
+								display: false,
+								group: [{
+									type: 'number',
+									name: 'numberName',
+									value: _that.ScanConfiguration.total_num,
+									'class': 'group_span',
+									blur: function (formData, element, that) {
+										_that.ScanConfiguration.total_num = formData.numberName
+									}
+								}]
+							},
+						],
+
+					})
+
+					$('#scan_disposition').css('margin-top', '20px')
+					$('[name="division_line"]').parent().parent().after('<div class="info-fen"></div>')
+					$('[name="show_Name"],[name="show_Name2"]').removeClass('btn-success bt-sm')
+					$('[name="show_Name"],[name="show_Name2"]').addClass('btn-default bt-cp-hover')
+					if (_that.ScanConfiguration.show_type == '1') {
+						$('[name="show_Name"]').addClass('btn-click').removeClass('bt-cp-hover')
+					}
+					if (_that.ScanConfiguration.show_type == '2') {
+						$('[name="show_Name2"]').addClass('btn-click').removeClass('bt-cp-hover')
+					}
+				},
+				cancel: function () {
+					//点击右上角关闭时,如果btn:false,当前事件将无法使用
+				},
+				yes: function (indexs) {
+					//点击确定时,如果btn:false,当前事件将无法使用
+					var sdata = {
+						exclude_path_list: JSON.stringify(_that.ScanConfiguration.exclude_path_list.split(',')),
+						// sort:'total_dsize',
+						exts: _that.ScanConfiguration.exts,
+						total_num: _that.ScanConfiguration.total_num,
+						show_type: _that.ScanConfiguration.show_type
+					}
+					bt_tools.send({
+						url: 'plugin?action=a&name=disk_analysis&s=set_scan_config',
+						data: sdata
+					}, function (res) {
+						//请求回调
+						layer.msg('Setting successful.', {
+							icon: res.status ? 1 : 2
+						})
+					}, 'xxx')
+					if (_that.btn == 'screen') {
+						_that.renderFilesInfo({
+							id: _that.taskId,
+							path: _that.subpath,
+						});
+					}
+					layer.close(indexs)
+				},
+			});
+			$('#excludeUpload').click(function () {
+				bt.select_path(
+					'diskScanPath',
+					'all',
+					function (path) {
+						_that.ScanConfiguration.exclude_path_list = _that.removeDuplicates(
+							_that.ScanConfiguration.exclude_path_list + ',' + path)
+						// uploadForm.$replace_render_content(0)
+						$('[name="val"]').text(_that.ScanConfiguration.exclude_path_list.replace(
+							new RegExp(/(,)/g), '\n'))
+					},
+					_that.$scanPath
+				);
+			})
+		},
+		/**
+		 * @description: 渲染筛选配置
+		 * @return {*}
+		 */
+		renderSwitch: function () {
+			var _that = this;
+			var disposition;
+			bt_tools.open({
+				title: 'Filter Settings',
+				area: ['420px', '350px'],
+				btn: ['Confirm', 'Cancel'],
+				skin: 'scan_set',
+				content: '<div id="Switch_peizi" style="padding-left:25px;padding-top:20px"></div>',
+				success: function (layero, indexs) {
+					disposition = bt_tools.form({
+						el: '#Switch_peizi',
+						data: _that.TemporaryScan,
+						form: [{
+								label: 'Display Mode',
+								formLabelWidth: '140px',
+								display: false,
+								group: [{
+										type: 'button',
+										name: 'show_Name',
+										title: 'Directory Structure',
+										style: {
+											'border-radius': '2px',
+											'border-top-right-radius': '0',
+											'border-bottom-right-radius': "0"
+										},
+										event: function (formData, element, that) {
+											$('[name="show_Name"]').addClass('btn-click').removeClass('bt-cp-hover')
+											$('[name="show_Name2"]').removeClass('btn-click').addClass('bt-cp-hover')
+											_that.ScanConfiguration.show_type = '1'
+
+											that.config.form[1].display = false;
+											that.config.form[2].display = false;
+											that.$replace_render_content(1)
+											that.$replace_render_content(2)
+										}
+									},
+									{
+										type: 'button',
+										name: 'show_Name2',
+										title: 'Show All Files',
+										style: {
+											'border-radius': '3px',
+											'border-top-left-radius': '0',
+											'border-bottom-left-radius': "0"
+										},
+										event: function (formData, element, that) {
+											// 触发submit
+											$('[name="show_Name2"]').addClass('btn-click').removeClass('bt-cp-hover')
+											$('[name="show_Name"]').removeClass('btn-click').addClass('bt-cp-hover')
+											_that.ScanConfiguration.show_type = '2'
+											that.config.form[1].display = true;
+											that.config.form[2].display = true;
+											that.$replace_render_content(1)
+											that.$replace_render_content(2)
+											// that.submit(formData)
+										}
+									}
+								]
+							},
+							{
+								label: 'File Size',
+								formLabelWidth: '140px',
+								// display:_that.ScanConfiguration.show_type=="1" ? false : true,
+								group: {
+									type: 'select',
+									width: '150px',
+									name: 'filter_size',
+									list: [{
+											title: "All sizes",
+											value: "",
+										},
+										{
+											title: ">100MB",
+											value: ">104857600",
+										},
+										{
+											title: "<100MB",
+											value: "<104857600",
+										},
+										{
+											title: ">1GB",
+											value: ">1073741824",
+										},
+										{
+											title: "<1GB",
+											value: "<1073741824",
+										}
+									],
+									change: function (formData, element, that) {
+										_that.ScanConfiguration.filter_size = formData.filter_size
+									}
+								}
+							},
+							{
+								label: 'File Filter Settings',
+								formLabelWidth: '140px',
+
+								// display:_that.ScanConfiguration.show_type=="1" ? false : true,
+								group: {
+									type: 'select',
+									width: '150px',
+									name: 'FilterSet',
+									list: [{
+											value: '1',
+											title: 'Display Specified Extension Files'
+										},
+										{
+											value: '0',
+											title: 'Exclude Specified Extension Files'
+										},
+									],
+									placeholder: 'Select filter method',
+									// value:_that.ScanConfiguration.exts,
+								}
+							},
+							{
+								label: 'Extension Files',
+								formLabelWidth: '140px',
+								// display:_that.ScanConfiguration.show_type=="1" ? false : true,
+								group: {
+									type: 'text',
+									name: 'SuffixName',
+									placeholder: 'zip,json',
+									value: _that.TemporaryScan.exts,
+									blur: function (formData, element, that) {
+										_that.TemporaryScan.exts = formData.SuffixName.trim()
+									},
+								}
+							},
+							{
+								label: 'Display File Quantity',
+								formLabelWidth: '140px',
+								// display:(_that.ScanConfiguration.show_type=="1" ? false : true),
+								group: [{
+									type: 'number',
+									name: 'numberName',
+									value: _that.TemporaryScan.total_num,
+									placeholder: 'Required field. If not filled, default value is 100.',
+									'class': 'group_span',
+									blur: function (formData, element, that) {
+										if (isNaN(formData.numberName) || formData.numberName == 0) {
+											return _that.TemporaryScan.total_num = 100
+										}
+										_that.TemporaryScan.total_num = formData.numberName
+									}
+								}]
+							}
+						],
+					})
+					$('[name="division_line"]').parent().parent().after('<div class="info-fen"></div>')
+					$('[name="show_Name"],[name="show_Name2"]').removeClass('btn-success bt-sm')
+					$('[name="show_Name"],[name="show_Name2"]').addClass('btn-default bt-cp-hover')
+					if (_that.ScanConfiguration.show_type == '1') {
+						$('[name="show_Name"]').addClass('btn-click').removeClass('bt-cp-hover')
+					}
+					if (_that.ScanConfiguration.show_type == '2') {
+						$('[name="show_Name2"]').addClass('btn-click').removeClass('bt-cp-hover')
+					}
+				},
+				cancel: function () {
+					_that.TemporaryScan.exts = _that.ScanConfiguration.exts
+					_that.TemporaryScan.total_num = _that.ScanConfiguration.total_num
+					_that.TemporaryScan.filter_size = _that.ScanConfiguration.filter_size
+				},
+				yes: function (indexs) {
+					var formValue = disposition.$get_form_value()
+					//点击确定时,如果btn:false,当前事件将无法使用
+					_that.ScanConfiguration.exts = _that.TemporaryScan.exts
+					_that.ScanConfiguration.is_exts_exclude = formValue.FilterSet == '0' ? false : true
+					_that.ScanConfiguration.total_num = _that.TemporaryScan.total_num
+					_that.ScanConfiguration.filter_size = formValue.filter_size
+					_that.renderFilesInfo({
+						id: _that.taskId,
+						path: _that.subpath,
+						is_exts_exclude: formValue.FilterSet == '0' ? false : true,
+						exts: _that.TemporaryScan.exts,
+						total_num: _that.ScanConfiguration.total_num,
+						filter_size: formValue.filter_size,
+						name: $('#filescan-nav-search .search-input').val()
+					});
+					$('#caret1, #caret2').css("color", "#CDCDCD")
+					$('.Size').find('#caret2').css("color", "#20A43A")
+					_that.ScanConfiguration.reverse = true
+					if ($('.scan-title').find('.screen_describe')) {
+						$('.scan-title').find('.screen_describe').remove()
+					}
+					_that.ScanConfiguration.FilterSet = formValue.FilterSet
+					$('.scan-title').append('<div class="screen_describe"><span>' + (formValue.FilterSet == '1' ?
+							'Show Extension Files' : 'Exclude File Extensions') + ':' + (_that.ScanConfiguration.exts == '' ? 'All File Formats' : _that
+							.ScanConfiguration.exts) +
+						'</span>&nbsp;&nbsp;&nbsp;<span>File Size:' + (_that.ScanConfiguration.filter_size == '' ? 'All Sizes' :
+							_that.ScanConfiguration.filter_size == '>104857600' ? 'Greater than 100MB' : _that.ScanConfiguration
+							.filter_size ==
+							'<104857600' ? 'Less than 100MB' : _that.ScanConfiguration.filter_size == '>1073741824' ? 'Greater than 1GB' :
+							_that.ScanConfiguration.filter_size == '<1073741824' ? 'Less than 1GB' : '') +
+						'</span>&nbsp;&nbsp;&nbsp;<span>Filter file display quantity:' +
+						_that.ScanConfiguration.total_num + '</span></div>')
+					// if (_that.ScanConfiguration.exts == '' && _that.ScanConfiguration.total_num == 100 && formValue
+					// 	.FilterSet == '1')
+					// 	$('.scan-title').find('.screen_describe').remove()
+					layer.close(indexs)
+				},
+				btn2: function (index, layero) {
+					_that.TemporaryScan.exts = _that.ScanConfiguration.exts
+					_that.TemporaryScan.total_num = _that.ScanConfiguration.total_num
+					_that.TemporaryScan.filter_size = _that.ScanConfiguration.filter_size
+				}
+			});
+		},
+		/**
+		 * @description: 获取扫描配置
+		 * @param {String} isPop 是否开启弹窗，默认不开启
+		 */
+		getScanAllocation: function (isPop) {
+			var _that = this
+			bt_tools.send(' plugin?action=a&name=disk_analysis&s=get_scan_config', function (res) {
+				var rdata = res.data
+				if (res.status) {
+					_that.ScanConfiguration.exclude_path_list = rdata.scan_config.exclude_path_list.join(',')
+					// _that.ScanConfiguration.sort = rdata.scan_show.sort
+					// _that.ScanConfiguration.show_type = rdata.scan_show.show_type
+					_that.ScanConfiguration.exts = rdata.file_show.exts
+					_that.ScanConfiguration.total_num = rdata.file_show.total_num
+					//临时扫描配置 
+					_that.TemporaryScan.exts = rdata.file_show.exts,
+					_that.TemporaryScan.total_num = rdata.file_show.total_num
+				}
+				if (isPop) {
+					_that.renderScanAllocation()
+				}
+			})
+		},
+		/**
+		 * @description 渲染扫描历史
+		 * @param {Object} data
+		 */
+		renderHistoryScan: function () {
+			var that = this;
+			bt_tools.open({
+				title: 'History record',
+				area: ['660px', '520px'],
+				btn: false,
+				content: '<div id="historyTable" style="padding: 20px"></div>',
+				success: function (layero, indexs) {
+					that.getScanFilesRequest(layero, indexs, function () {
+						bt_tools.setLayerArea(layero);
+					});
+				},
+			});
+		},
+
+		/**
+		 * @description 删除文件或目录
+		 * @param {Object} data
+		 */
+		delFileDir: function (data, callback) {
+			var that = this;
+			if (that.isRecycle) {
+				bt.confirm({
+						title: 'Delete ' + data.type + '【' + data.filename + '】',
+						msg: 'Deleted ' + data.type  + data.type +
+							'will move to Recycle bin after deleted，<span class="color-org">Confirm if unnecessary file. Accidental deletion can crash system. Proceed with deletion. </span>Continue？</span>'
+					},
+					function () {
+						that.delFileRequest(data, function (res) {
+							if (callback) callback(res);
+							layer.msg(res.msg, {
+								icon: res.status ? 1 : 2,
+							});
+						});
+					}
+				);
+			} else {
+				bt.compute_confirm({
+					title: 'Delete ' + data.type + '【' + data.filename + '】',
+					msg: 'Risky, Recycle bin without opening,Delete ' + data.type +
+						'will completely deleted, cannot be restored, <span class="color-org">Confirm if unnecessary file. Accidental deletion can crash system. Proceed with deletion. </span>Continue？'
+				}, function () {
+					that.delFileRequest(data, function (res) {
+						if (callback) callback(res);
+						layer.msg(res.msg, {
+							icon: res.status ? 1 : 2,
+						});
+					});
+				});
+			}
+		},
+
+		/**
+		 * @description 获取扫描日志
+		 * @param {object} config 配置参数
+		 * @param {function} callback 回调函数
+		 */
+		getScanHistoryRequest: function (config, callback) {
+			var _that = this
+			bt_tools.send({
+					url: 'plugin?action=a&name=disk_analysis&s=get_scan_result',
+					data: {
+						scan_id: config.id,
+						sub_path: config.path,
+						file_name: config.name,
+						sort: config.sort,
+						reverse: config.reverse,
+						filter_size: config.filter_size || undefined,
+						is_exts_exclude: config.is_exts_exclude || undefined,
+					},
+				},
+				function (rdata) {
+					if (rdata.length) {
+						this.taskStatus = true
+					}
+					if (callback) callback(rdata);
+				}, {
+					load: 'Get file information',
+					// plugin: true,
+				}
+			);
+		},
+		/**
+		 * @description: 获取文件结构的日志
+		 * @param {*} config 配置参数
+		 * @param {*} cahllback
+		 */
+		getScanFileRequest: function (config, cahllback) {
+			var _that = this
+			bt_tools.send({
+					url: 'plugin?action=a&name=disk_analysis&s=filter_file',
+					data: {
+						scan_id: config.id,
+						sub_path: config.path,
+						file_name: config.name,
+						reverse: config.reverse,
+						sort: config.sort,
+						is_exts_exclude: config.is_exts_exclude,
+						// sort:_that.ScanConfiguration.sort,
+						exts: config.exts,
+						total_num: config.total_num,
+						filter_size: config.filter_size
+					}
+
+				},
+				function (rdata) {
+					if (rdata.status) {
+						this.taskStatus = true
+					}
+					if (cahllback) cahllback(rdata)
+				}, {
+					load: 'Get file information',
+					// plugin: true,
+				}
+			)
+
+		},
+
+		/**
+		 * @description 获取历史扫描日志
+		 * @param {function} layero xx
+		 * @param {function} indexs xx
+		 * @param {function} callback xx
+		 */
+		getScanFilesRequest: function (layero, indexs, callback) {
+			var that = this;
+			var history_table = bt_tools.table({
+				el: '#historyTable',
+				url: '/plugin?action=a&name=disk_analysis&s=get_scan_log',
+				load: true,
+				height: 380,
+				dataFilter: function (res) {
+					var data = [];
+					if (res.status) {
+						for (var i = 0; i < res.data.length; i++) {
+							var item = res.data[i];
+							if (item.size != 0) data.push(item);
+						}
+					}
+
+					return {
+						data: data
+					};
+				},
+				success: function (rdata) {
+					that.historyList = rdata.data;
+					callback();
+				},
+				column: [{
+						type: 'checkbox',
+						width: 20
+					},
+					{
+						fid: 'scan_path',
+						title: 'Scan directory',
+						width: 150,
+						fixed: true,
+					},
+					{
+						fid: 'scan_type',
+						title: 'Scan type',
+						width: 100,
+						template: function (row) {
+							return '<span>' + (row.scan_type ? row.scan_type === 1 ? 'aaPanel Service Analysis' : 'Disk Analysis' : 'Scan Now') + '</span>';
+						},
+					},
+					{
+						fid: 'mtime',
+						title: 'Scan time',
+						width: 130,
+						template: function (row) {
+							return '<span>' + row.scan_time + '</span>';
+						},
+					},
+					{
+						fid: 'mtime',
+						title: 'Log size',
+						width: 85,
+						template: function (row) {
+							return '<span>' + bt.format_size(row.size) + '</span>';
+						},
+					},
+					{
+						title: 'Operate',
+						type: 'group',
+						width: 80,
+						align: 'right',
+						group: [{
+								title: 'Check',
+								event: function (row) {
+									that.getScanAllocation()
+									that.taskId = row.scan_id;
+									that.subpath = ''
+									// that.renderFilesView({
+									// 	id: that.taskId,
+									// 	init: true
+									// });
+									that.openScan({title: 'History scan results for ['+ row.scan_path +']',init: true})
+									layer.close(indexs);
+								},
+							},
+							{
+								title: 'Del',
+								event: function (row) {
+									that.taskId = row.scan_id;
+									that.delScanFilesRequest({
+										id: that.taskId
+									}, function () {
+										that.getScanFilesRequest(layero, indexs);
+									});
+								},
+							},
+						],
+					},
+				],
+				tootls: [{
+					type: 'batch',
+					positon: ['left', 'bottom'],
+					config: {
+						title: 'Del',
+						url: 'plugin?action=a&name=disk_analysis&s=del_scan_log',
+						param: function (row) {
+							return {
+								scan_id: row.scan_id
+							}
+						},
+						load: true,
+						callback: function (_that) {
+							bt.confirm({
+								title: 'Batch delete historical records',
+								msg: 'Do you continue to delete the selected historical records in batches?',
+								icon: 0
+							}, function (index) {
+								layer.close(index);
+								_that.start_batch({}, function (list) {
+									var html = '';
+									for (var i = 0; i < list.length; i++) {
+										var item = list[i];
+										html += '<tr><td><span class="text-overflow" title="' + item.scan_path + '">' +
+											item.scan_path + '</span></td>\
+											<td><div style="float:right;"><span style="color:' + (item.request.status ? '#20a53a' : 'red') + '">' + item
+											.request.msg + '</span></div></td>\
+											</tr>';
+									}
+									history_table.$batch_success_table({
+										title: 'Batch delete historical records',
+										th: 'Scan directory',
+										html: html
+									});
+									that.getScanFilesRequest(layero, indexs);
+								});
+							});
+						}
+					}
+				}]
+			});
+		},
+
+		/**
+		 * @description 删除历史扫描日志
+		 * @param {object} config 配置参数
+		 * @param {function} callback 回调函数
+		 */
+		delScanFilesRequest: function (config, callback) {
+			bt_tools.send(
+				// 'disk_analysis/del_scan_files',
+				//'/plugin?action=a&name=disk_analysis&s=del_scan_log',//邓
+				// {
+				// 	scan_id: config.id,
+				// },
+				{
+					url: 'plugin?action=a&name=disk_analysis&s=del_scan_log',
+					data: {
+						scan_id: config.id
+					}
+				},
+				function (rdata) {
+					if (rdata.status) {
+						bt_tools.msg(rdata.msg);
+						callback();
+					}
+				}, {
+					load: 'delete history',
+					plugin: true,
+				}
+			);
+		},
+
+		/**
+		 * @description 创建扫描任务
+		 * @param {function} callback 回调函数
+		 */
+		createScanTaskRequest: function (obj,callback) {
+			var that = this;
+			// var timestamp = new Date().getTime();
+			var param = {}
+			if(obj.hasOwnProperty('scanType') && obj.scanType !== undefined) {
+				param = {
+					scan_path: obj.scanType === 1 ? '/www' : '/',
+					scan_type: obj.scanType,
+				}
+				if(obj.scanType === 2) param['exclude_path'] = JSON.stringify(['/proc/kcore'])
+			}else{
+				param = {
+					// id: timestamp,
+					scan_path: window.location.pathname == '/files_ifame' ? bt.get_cookie('files_path') : that.$scanPath,
+					exclude_path: JSON.stringify(that.ScanConfiguration.exclude_path_list.split(','))
+				}
+			}
+			that.taskPath = param.scan_path
+			bt_tools.send({
+					url: ' plugin?action=a&name=disk_analysis&s=start_scan',
+					data: param,
+				},
+				function (rdata) {
+					if (callback) callback(rdata);
+				}, {
+					// load: '创建扫描任务中',
+					plugin: true,
+					verify: false
+				}
+			);
+		},
+
+
+		/**
+		 * @description 获取回收站文件
+		 * @param {function} callback 回调函数
+		 */
+		getFilesRecycleRequest: function (callback) {
+			bt_tools.send(
+				'files/Get_Recycle_bin',
+				// {},
+				function (rdata) {
+					if (callback) callback(rdata);
+				}, {
+					load: false,
+				}
+			);
+		},
+
+		/**
+		 * @description 删除文件（文件和文件夹）
+		 * @param {Object} data 文件目录参数
+		 * @param {Function} callback 回调函数
+		 * @return void
+		 */
+		delFileRequest: function (data, callback) {
+			var _req = data.type === 'Files' ? 'DeleteFile' : 'DeleteDir';
+			bt_tools.send(
+				'files/' + _req, {
+					path: data.path,
+				},
+				function (res) {
+					if (callback) callback(res);
+				}, {
+					load: 'delete file/directory',
+				}
+			);
+		},
+
+		/**
+		 * @description 获取目录地址
+		 * @param {string} path 路径
+		 * @param {number} param 参数
+		 */
+		getDirPath: function (path, param) {
+			path.replace(/\/$/, '');
+			var pathArr = path.split('/');
+			if (pathArr.length === 1) return path;
+			if (param === -1) pathArr.push(status);
+			if (typeof param === 'boolean') pathArr.pop();
+			return pathArr.join('/').replace(/(\/)$/, '');
+		},
+
+		/**
+		 * @description 获取文件大小
+		 * @param {object} el 文件大小
+		 * @param {function} fn 回调函数
+		 */
+		bind: function (el, fn) {
+			if (typeof el === 'string') {
+				this.$el.on('click', el, fn);
+			} else {
+				el.unbind('click').on('click', fn);
+			}
+		},
+		/**
+		 * @description: 讲用逗号拼接的字符串去重原格式返回
+		 * @param {string} str  '/sdsf/sdf,/sdsf/sdf'
+		 * @return {string}    '/sdsf/sdf,'
+		 */
+		removeDuplicates: function (str) {
+			var arr = str.split(',').filter(function (item) {
+				return item.trim() !== '';
+			});
+			var uniqueArr = [];
+			for (var i = 0; i < arr.length; i++) {
+				var item = arr[i];
+				// 去除最后面的斜杠字符
+				if (item.slice(-1) === '/') {
+					item = item.slice(0, -1);
+				}
+				if (uniqueArr.indexOf(item) === -1) {
+					uniqueArr.push(item);
+				}
+			}
+			return uniqueArr.join(',');
+		},
+		/**
+		 * @description: 文件清理
+		 * @return {string}
+		 */
+		openGarbageView: function(){
+			var that = this;
+			bt_tools.open({
+				title: 'Disk scanning',
+				area: ['750px', '600px'],
+				btn: false,
+				skin:'clear_tools_dialog',
+				content: '<div style="padding: 15px">\
+					<div class="clear_tools_header">\
+						<div class="ct_left">\
+							<i></i>\
+							<div>\
+								<span>Clean up junk files</span>\
+								<span class="clean_tip">*If cleanup takes longer, try repairing the panel.</span>\
+								<p>'+that.clearTools.data.homeDesipt+'</p>\
+							</div>\
+						</div>\
+						<div class="ct_right">\
+							<span class="btlink mr20 f14 hide returnClearScan">Back</span>\
+							<button class="btn btn-success ClearScanBtn start">Start Scanning</button>\
+						</div>\
+					</div>\
+					<div class="line_border cline">\
+						<div class="g-container">\
+							<div class="g-progress"></div>\
+						</div>\
+					</div>\
+					<div id="clear_tools_content"></div>\
+					</div>',
+				success: function (layero, indexs) {
+					$('.clear_tools_dialog').find('.layui-layer-content').css('overflow','inherit')
+					that.clearTools.init();
+					// 开始扫描
+					$('.ct_right').on('click','.ClearScanBtn.start',function(){
+						// 获取选中的数据
+						that.clearTools.data.clearData = []
+						that.clearTools.data.clearType = []
+						$('.clear_tools_item').each(function(index,item){
+							var type = $(item).data('type')
+							if($(item).find('.cust-checkbox').hasClass('active')){
+								that.clearTools.data.clearType.push(type)
+								that.clearTools.data.clearData.push({
+									icon:type,
+									title:$(item).find('div span span').text(),
+									type:type,
+									status:that.clearTools.data.firstData[index].status,
+									child:[]
+								})
+							}
+						})
+
+						that.clearTools.data.scanTotal = 0
+						that.clearTools.getClearData()
+						that.clearTools.editScanBtnStatus('stop')
+					})
+					// 返回/完成
+					$('.ct_right').on('click','.returnClearScan,.ClearScanBtn.win',function(){
+						that.clearTools.init();
+						that.clearTools.editScanBtnStatus('start')
+						$('.clear_tools_header .ct_left div p').html(that.clearTools.data.homeDesipt)
+					})
+					// 清理按钮点击事件
+					$('.ct_right').on('click','.ClearScanBtn.clear',function(){
+						that.clearTools.clearProgress()
+					})
+					
+				},
+			});
+		},
+		clearTools:{
+			data:{
+				homeDesipt:'Quickly scan and clean server junk to free up server space.',// 首页描述
+				firstData: [],// 类型中的数据
+				clearType:[], // 清理的类型
+				clearData: [], // 清理的数组
+				scanTotal:0, // 扫描垃圾总数
+			},
+			init:function(){
+				// 获取首次可清理的数据
+				this.getFirstClearData()
+			},
+			getFirstClearData:function(){
+				var that = this;
+				bt_tools.send({url:'/plugin?action=a&name=disk_analysis&s=get_scan_type'},function(res){
+					that.data.firstData = res
+					// 渲染首次可清理的数据
+					that.renderFirstView()
+				})
+			},
+			// 渲染首次可清理的数据
+			renderFirstView:function(){
+				var html = '';
+				for(var i = 0; i < this.data.firstData.length; i++){
+					var item = this.data.firstData[i];
+					html += '<div class="clear_tools_item" data-type="'+item.type+'">\
+						<i class="ct_icon clear_home_'+ item.type +'"></i>\
+						<div>\
+							<span class="ct-title-box"><i class="cust-checkbox '+(item.status?'active':'')+'"></i><span>'+ item.title +'</span></span>\
+							<p>'+ item.desc +'</p>\
+						</div>\
+					</div>'
+				}
+				$('#clear_tools_content').html('<div class="ct_mode">'+html+'</div>');
+				// ct-title-box事件
+				$('.ct-title-box').click(function(ev){
+					ev.stopPropagation();
+					$(this).find('.cust-checkbox').toggleClass('active');
+				})
+				// cust-checkbox事件
+				$('.cust-checkbox').click(function(ev){
+					ev.stopPropagation();
+					$(this).toggleClass('active');
+				})
+			},
+			// 获取清理数据
+			getClearData:function(){
+				var that = this,cnHTML = ''
+				// 渲染大分类区块
+				$.each(this.data.clearData,function(index,item){
+					cnHTML+= '<div class="ct_mode_child" data-type="'+item.type+'">\
+						<div class="ct_mode_title">\
+							<i class="ct_two_'+ item.icon +'"></i>\
+							<span class="ct_title">'+ item.title +'</span>\
+							<span class="ct_tips"></span>\
+						</div>\
+						<div class="ct_mode_content"></div></div>'
+				})
+				$('#clear_tools_content').html('<div class="ct_mode_two">'+cnHTML+'</div>');
+
+				// 开始扫描
+				disk_analysis.DAWebSocket({
+					param:{
+						ws_callback: "111", //固定参数
+						model_index: "plugin", //固定参数
+						mod_name: "panelPlugin", //固定参数
+						def_name: "a", //固定参数
+						name: "disk_analysis", //固定参数，插件名称
+						s: "scan_dir", //接口函数名称
+						junk_types: that.data.clearType //垃圾类型，传数组
+					},
+					message: function (res) {
+						if(res.hasOwnProperty('parent_type')){
+							// res.parent_type等于clearData中的type时添加至child中
+							$.each(that.data.clearData,function(index,item){
+								var _status = item.status
+								if(item.type === res.parent_type){
+									// 初始化list列表active值
+									if(res.hasOwnProperty('list') && res.type == 1 && res.list.length > 0){
+										$.each(res.list,function(lindex,litem){
+											litem.status = _status
+										})
+									}
+									item.child.push(res)
+									that.renderClearData(res,index)
+								}
+							})
+						}
+						if(res.hasOwnProperty('result') && res.result === true){
+							// 修改按钮状态
+							that.editScanBtnStatus('clear') 
+							// 显示各模块的完整信息
+							that.showCompleteInfo()
+							// 显示清理勾选项
+							that.showClearItemsCheck()
+							// 恢复默认进度
+							$('.g-progress').css('width','0%')
+						}else{
+							that.data.scanTotal+=res.total_asize
+							that.editScanSpeed(res)
+						}
+					}
+				})
+			},
+			/* 
+			 * 立即清理
+			 */
+			clearProgress:function(){
+				var that = this,clearPath = [];
+				
+				this.editScanBtnStatus('clearloading')
+				$('.ct_mode_items .mode—check').remove()  // 移除所有的mode—check
+				$('.ct_mode_items').find('.ct_mode_detail i').unbind()//移除点击详情事件
+
+
+				// 遍历clearData中的child.status为true的数据
+				$.each(this.data.clearData,function(index,item){
+					clearPath.push({type:item.type,paths:[]})
+					$.each(item.child,function(cindex,citem){
+						if(citem.status){
+							// 是否非全选，获取单独获取list中选中的
+							if($('[data-type="'+item.type+'"]').find('.ct_mode_items').eq(cindex).find('.mode—check i').hasClass('difference')){
+								if(citem.hasOwnProperty('list') && citem.type == 1 && citem.list.length > 0){
+									$.each(citem.list,function(lindex,litem){
+										if(litem.status){
+											clearPath[index].paths.push(litem.full_path)
+										}
+									})
+								}else{
+									clearPath[index].paths.push(citem.full_path)
+								}
+							}else {
+								clearPath[index].paths.push(citem.full_path)
+							}
+						}
+					})
+				})
+				// 开始清理
+				var connect = disk_analysis.DAWebSocket({
+					param:{
+						ws_callback: "111", //固定参数
+						model_index: "plugin", //固定参数
+						mod_name: "panelPlugin", //固定参数
+						def_name: "a", //固定参数
+						name: "disk_analysis", //固定参数，插件名称
+						s: "clean_file", //接口函数名称
+						clean_files: clearPath //垃圾类型，传数组
+					},
+					message: function (res) {
+						that.editScanSpeed(res,'clear')
+						if(res.hasOwnProperty('msg') && res.msg.indexOf('Cleanup completed!') != -1){
+							connect.close_connect()
+							// 修改按钮状态
+							that.editScanBtnStatus('win')
+							// 清理完成后的操作
+							that.clearToolsWinView()
+							// 恢复默认进度
+							$('.g-progress').css('width','0%')
+						}
+					}
+				})
+			},
+			/*
+			 * 修改扫描进度
+			 * @param {string} type 按钮状态
+			 */
+			editScanSpeed:function(res,type){
+				var scanInfoBox = $('.clear_tools_dialog').find('.ct_left div p'),speed = res.percentage>100 ? 100 : res.percentage
+				$('.g-progress').css('width',speed+'%')
+				if(type === 'clear'){
+					var text = res.msg
+					if(text.length > 60){
+						// 取后64位
+						text = '...'+text.substr(text.length-60)
+					}
+					scanInfoBox.html(text)
+				}else{
+					scanInfoBox.html('Scanning in progress:'+res.clean_name)
+					if(res.percentage == 100){
+						scanInfoBox.html('The scan is completed, and '+bt.format_size(this.data.scanTotal)+' garbage is found');
+					}
+				}
+			},
+			/*
+			 * 渲染清理数据
+			 * @param {object} data 渲染的数据
+			 */
+			renderClearData:function(data,index){
+				var itemHTML = '<div class="ct_mode_items">\
+						<span class="ct_mode_detail">\
+							<i class="'+ this.switchClearIcon(data.clean_name) +'" title="Click to view file details"></i>\
+						</span>\
+						<div>\
+							<span title="'+data.name+'">'+ data.clean_name +'</span>\
+							<div>'+ bt.format_size(data.total_asize) +'</div>\
+						</div>\
+					</div>'
+				$('.ct_mode_content').eq(index).append(itemHTML)
+			},
+			/*
+			 * 显示各模块的完整信息
+			 */
+			showCompleteInfo:function(){
+				$.each(this.data.clearData,function(index,item){
+					var _size = 0,_total = 0,_tSize = 0
+					$.each(item.child,function(cindex,citem){
+						_total ++                     // 总项数
+						_tSize += citem.total_asize   // 总大小
+						if(citem.status){
+							if(citem.hasOwnProperty('list') && citem.type == 1 && citem.list.length > 0){
+								$.each(citem.list,function(lindex,litem){
+									if(litem.status){
+										_size += litem.total_asize
+									}
+								})
+							}else{
+								_size += citem.total_asize
+							}
+						}
+					})
+					
+					$('.ct_mode_title').eq(index).find('.ct_tips').html('<span class="ct_tips_total">Total '+_total+' items，'+bt.format_size(_tSize)+'，Selected <span>'+bt.format_size(_size)+'</span></span><span class="ct_tips_status '+(item.type == 'system' ? 'warring' : 'success')+'">'+(item.type == 'system' ? '*Clean the garbage below as needed.' : '*Safe to clean without risks.')+'</span>')
+				})
+			},
+			/*
+			 * 显示清理勾选项
+			 */
+			showClearItemsCheck:function(){
+				$('.ct_mode_items>span').append('<span class="mode—check"><i class="cust-checkbox"></i></span>')
+				// 非子项目全选时.mode—check i 设置difference
+				var that = this;
+				// 根据clearData.child中每项status设置是否选中
+				$.each(this.data.clearData,function(index,item){
+					$.each(item.child,function(cindex,citem){
+						if(citem.status){
+							$('.ct_mode_content').eq(index).find('.ct_mode_items').eq(cindex).find('.mode—check i').addClass('active')
+						}
+					})
+				})
+				$('.cust-checkbox').click(function(){
+					if($(this).hasClass('difference')){
+						$(this).removeClass('difference').addClass('active')
+					}else{
+						$(this).toggleClass('active');
+					}
+				})
+				$('.ct_mode_detail i').click(function(ev){
+					// 获取是clearData中的第几个child
+					var index = $(this).parents('.ct_mode_child').index()
+					// 获取是child中的第几个
+					var _index = $(this).parents('.ct_mode_items').index()
+					// 获取当前的数据
+					var _data = that.data.clearData[index].child[_index]
+					if(ev.target.localName == 'i' && $(ev.target).hasClass('cust-checkbox')){
+						// 设置对应的数据的status
+						_data.status = $(ev.target).hasClass('active') ? true : false
+						// 设置对应的数据的list的status
+						if(_data.hasOwnProperty('list') && _data.type == 1 && _data.list.length > 0){
+							$.each(_data.list,function(lindex,litem){
+								litem.status = _data.status
+							})
+						}
+						that.showCompleteInfo()
+						return false;
+					}
+					// 查看当前数据的详情
+					that.showClearItemsDetail(_data,index,_index)
+					
+					ev.stopPropagation()
+				})
+
+			},
+			/*
+			 * 查看当前数据的详情
+			 * @param {object} data 当前数据
+			 * @param {number} pindex 当前数据在clearData中的第几个
+			 * @param {number} cindex 当前数据在child中的第几个
+			 */
+			showClearItemsDetail:function(data,pindex,cindex){
+				var that = this,size = bt.format_size(data.total_asize)
+				bt_tools.open({
+					title:'Scan Disk Tool - Garbage Cleanup - '+data.clean_name+'Details',
+					area:['750px','600px'],
+					btn:false,
+					skin:'ct_item_detail_dialog',
+					content:'<div style="padding: 15px">\
+					<div class="clear_tools_header">\
+						<div class="ct_left">\
+							<i class="'+that.switchClearIcon(data.clean_name)+'"></i>\
+							<div>\
+								<span>'+data.clean_name+'</span>\
+								<p>'+data.dir_num+' directories（'+data.file_num+' folders）,total <span class="computeSize">'+size+'</span></p>\
+							</div>\
+						</div>\
+					</div>\
+					<div id="ct_detail_box"></div>\
+					<div class="ct_detail_footer">\
+						<div style="margin-top: 10px;"><i class="cust-checkbox '+(data.status?'active':'')+'"></i>Select All</div>\
+						<div style="float: right;">\
+							<button class="btn btn-default mr10">Back</button>\
+							<button class="btn btn-success">confirm</button>\
+						</div>\
+					</div>\
+					</div>',
+					success:function(layero,indexs){
+						if(data.hasOwnProperty('list') && data.type == 1 && data.list.length > 0){
+							$.each(data.list,function(index,item){
+								var childHTML = '',html = '';
+								if(item.hasOwnProperty('list') && item.type == 1){
+									$.each(item.list,function(cindex,citem){
+										childHTML += '<div class="ct_detail_items">\
+											<span class="ct_detail_item_title">\
+												<span class="ctd_title" title="'+citem.full_path+'">'+ citem.name +'</span>\
+												<div>\
+													<span>'+ bt.format_size(citem.total_asize) +'</span>\
+													<span data-path="'+citem.full_path+'" class="glyphicon cursor glyphicon-folder-open"></span>\
+												</div>\
+											</span>\
+										</div>'
+									})
+								}
+								html = '<div class="ct_detail_item">\
+									<div class="ct_detail_title">\
+										<div>\
+											<i class="cust-checkbox '+(item.status?'active':'')+'"></i>\
+											<span class="ml10 ctd_title" title="'+item.full_path+'">'+ item.full_path +'</span>\
+										</div>\
+										<div>\
+											<span>'+ (item.type == 1?(item.dir_num +' directories （'+item.file_num+' folders '):'')+'</span>\
+											<span>'+ bt.format_size(item.total_asize) +'</span>\
+											'+(item.type == 1?'<img src="/static/img/arrow-down.svg" style="transform: rotate(180deg);">':'<div style="width: 18px;height: 18px;display: inline-block;"></div>')+'\
+										</div>\
+									</div>\
+									'+(item.type == 1?'<div class="ct_detail_content">'+childHTML+'</div>':'')+'\
+								</div>'
+								$('#ct_detail_box').append(html)
+								
+							})
+							
+							// 点击文件夹
+							$('.ct_detail_content').on('click','.glyphicon-folder-open',function(){
+								var _path = $(this).data('path')
+								openPath(_path);
+							})
+							// 点击下拉图标
+							$('.ct_item_detail_dialog').on('click','img',function(){
+								// 当前是否含有style
+								if($(this).attr('style')){
+									$(this).removeAttr('style')
+									$(this).parents('.ct_detail_title').next().show()
+								}else{
+									$(this).css('transform','rotate(180deg)')
+									$(this).parents('.ct_detail_title').next().hide()
+								}
+							})
+						}else{
+							$('#ct_detail_box').append('<div>No file list</div>')
+						}
+						
+						// 点击cust-checkbox
+						$('.ct_detail_title .cust-checkbox').click(function(){
+							$(this).toggleClass('active');
+							// 判断是否全选
+							var _length = $('.ct_detail_item').length
+							var _activeLength = $('.ct_detail_item .cust-checkbox.active').length
+							if(_length === _activeLength){
+								$('.ct_detail_footer .cust-checkbox').addClass('active')
+							}else{
+								$('.ct_detail_footer .cust-checkbox').removeClass('active')
+							}
+						})
+						// 点击全选
+						$('.ct_detail_footer .cust-checkbox').click(function(){
+							$(this).toggleClass('active');
+							if($(this).hasClass('active')){
+								$('.ct_detail_item .cust-checkbox').addClass('active')
+							}else{
+								$('.ct_detail_item .cust-checkbox').removeClass('active')
+							}
+						})
+
+						// 确认按钮
+						$('.ct_detail_footer .btn-success').click(function(){
+							layer.close(indexs);
+							var isAll = $('.ct_detail_footer .cust-checkbox').hasClass('active');
+							var activeLength = $('.ct_detail_item .cust-checkbox.active').length;
+							var statusValue = isAll ? 1 : (activeLength === 0 ? 0 : 2);
+							that.editClearDataStatus(pindex, cindex, statusValue);
+
+							$.each(data.list, function(index, item) {
+								// 判断是否全选，全选时status为true，否则检查未选中项单独设置
+								var newStatus = isAll || $('.ct_detail_item').eq(index).find('.ct_detail_title .cust-checkbox.active').length > 0 ? true : false;
+								that.data.clearData[pindex].child[cindex].list[index].status = newStatus;
+							});
+						})
+						// 返回按钮
+						$('.ct_detail_footer .btn-default').click(function(){
+							layer.close(indexs)
+						})
+					}
+				})
+			},
+			editClearDataStatus:function(pindex,cindex,isClassType){
+				// 修改clearData中的status
+				this.data.clearData[pindex].child[cindex].status = isClassType == 1 ? true : (isClassType == 2 ? true : false)
+				// 修改ct_mode_items中的cust-checkbox的class
+				$('.ct_mode_child').eq(pindex).find('.ct_mode_items').eq(cindex).find('.cust-checkbox').removeClass('active difference').addClass(isClassType == 1?'active':(isClassType == 2?'difference':''))
+			},
+			switchClearIcon:function(name){
+				var nameMapping = {
+					'cache': 'cache',
+					'pm2': 'pm2',
+					'temp': 'temp',
+					'Docker': 'docker',
+					'fail2ban': 'fail2ban',
+					'recycle': 'recycle',
+					'File': 'filelog',
+					'log': 'log'
+				};
+
+				var result = 'other';
+				for (var key in nameMapping) {
+					if (name.indexOf(key) != -1) {
+						result = nameMapping[key];
+						break;
+					}
+				}
+				return result;
+			},
+			/*
+			 * 清理完成后的操作
+			 */
+			clearToolsWinView:function(){
+				var that = this,
+					_item = '',
+					eData = [],
+					total = 0,
+					colorList = ['#66c5d7', '#11c88c', '#989cff', '#ffa55d', '#9c7de1', '#5d9eff', '#ffdb5d', '#ee82ed', '#8fca5f', '#b995f5'];
+				bt_tools.send({url:'/plugin?action=a&name=disk_analysis&s=get_clean_result'},function(res){
+					$.each(res,function(index,item){
+						_item += '<div class="ctw_item"><i class="ct_'+item.type+'"></i><div><div>'+item.title+'</div><div>'+bt.format_size(item.size)+'</div></div></div>'
+						eData.push({value:item.size,name:item.title,itemStyle:{normal:{color:colorList[index]}}})
+						total+=item.size
+					})
+					var html = '<div class="clear_tools_win">\
+						<div class="ctw_left">\
+							<div id="clearEchart" style="width: 300px;height:300px;"></div>\
+						</div>\
+						<div class="ctw_right">\
+							<div class="ctw_content">'+_item+'</div>\
+						</div>'
+					$('#clear_tools_content').addClass('gl_over').html(html)
+					// 渲染清理完成的echart
+					jQuery.ajax({
+						url: "/static/js/echarts.min.js",
+						dataType: "script",
+						cache: true
+					}).done(function() {
+						// console.log(eData,total);
+						that.clearEchartView(eData,total);
+					});
+				},'Get cleaning results')
+			},
+			clearEchartView:function(eData,total){
+				var option = {
+					tooltip: {
+						trigger: 'item',
+						formatter:function(params){
+							return params.name+'：'+bt.format_size(params.value)+' ('+params.percent+'%)'
+						}
+					},
+					title: [{
+							text: 'Cleanup ize',
+							left: '49%',
+							top: '44%',
+							textAlign: 'center',
+							textBaseline: 'middle',
+							textStyle: {
+								color: '#999',
+								fontWeight: 'normal',
+								fontSize: 18
+							}
+						}, {
+							text: bt.format_size(total),
+							left: '49%',
+							top: '51%',
+							textAlign: 'center',
+							textBaseline: 'middle',
+							textStyle: {
+								color: '#666',
+								fontWeight: 'normal',
+								fontSize: 20
+							}
+						}],
+					series: [{
+						hoverAnimation: false, //设置饼图默认的展开样式
+						radius: [100, 120],
+						name: 'pie',
+						type: 'pie',
+						selectedMode: 'single',
+						minAngle:1,
+						selectedOffset: 16, //选中是扇区偏移量
+						clockwise: true,
+						startAngle: 90,
+						label: {
+							normal: {
+								show: false
+							}
+						},
+						labelLine: {
+							normal: {
+								show: false
+							}
+						},
+						itemStyle: {
+							normal: {
+								borderWidth: 3,
+								borderColor: '#ffffff',
+							},
+							emphasis: {
+								borderWidth: 0,
+								shadowBlur: 5,
+								shadowOffsetX: 0,
+								shadowColor: 'rgba(0, 0, 0, 0.2)'
+							}
+						},
+						data: eData
+					}]
+				};
+				var myChart = echarts.init(document.getElementById('clearEchart'));
+				myChart.setOption(option,true);
+
+			},
+			// 修改按钮状态
+			editScanBtnStatus:function(type){
+				var that = this,
+					_btn = $('.ClearScanBtn'),
+					reBtn = $('.returnClearScan'),
+					progress = $('.clear_tools_dialog .line_border'),
+					topLogo = $('.clear_tools_dialog .ct_left i');
+				reBtn.addClass('hide');  //默认隐藏
+				progress.removeClass('speed').addClass('cline');  //默认隐藏进度
+				_btn.removeClass('stop start clear win').addClass(type)
+				topLogo.removeClass('t_loading clear_loading logo2')
+				switch(type){
+					case 'stop':
+						_btn.removeClass('btn-success').addClass('btn-default').text('Scanning');
+						progress.addClass('speed').removeClass('cline')
+						topLogo.addClass('t_loading')
+						break;
+					case 'start':
+						_btn.removeClass('btn-default').addClass('btn-success start').text('Start scan');
+						$('#clear_tools_content').removeClass('gl_over')
+						break;
+					case 'clear':
+						_btn.removeClass('btn-success').addClass('btn-default').text('Clean now');
+						reBtn.removeClass('hide');
+						topLogo.addClass('logo2')
+						break;
+					case 'clearloading'://正在清理
+						_btn.removeClass('btn-success').addClass('btn-default').text('Cleaning in progress');
+						progress.addClass('speed').removeClass('cline')
+						topLogo.addClass('clear_loading')
+						break;
+					case 'win':
+						_btn.removeClass('btn-success').addClass('btn-default').text('Completed');
+						reBtn.removeClass('hide');
+						break;
+				}
+			}
+		},
+		DAWebSocket: function (config) {
+			var _that = this
+			/**
+			 * @description 渲染
+			 * @param config
+			 * @return {object}
+			 * @constructor
+			 */
+			function ReaderCommand (config) {
+				var that = this;
+				this.config = $.extend({ route: '/ws_panel' }, config)
+				this.open = config.open;
+				this.close = config.close;
+				this.message = config.message;
+				if (this.config.hasOwnProperty('time')) {
+					setTimeout(function () {
+						that.close_connect()
+					}, this.config.time)
+				}
+				this.init()
+			}
+			ReaderCommand.prototype = {
+				socket: null, //websocket 连接保持的对象
+				socketToken: null,
+				timeout: 0, // 连接到期时间，为0代表永久有效
+				monitor_interval: 2000,
+				error: 0, // 错误次数，用于监听元素内容是否还存在
+				retry: 0, // 重试次数
+				forceExit: false, // 强制断开连接
+				/**
+				 * @description 程序初始化
+				 */
+				init: function () {
+					var that = this;
+					this.create_websocket_connect(this.config.route, this.config.param)
+					// this.monitor_element()
+				},
+				/**
+				 * @description 创建websocket连接
+				 * @param {string} url websocket连接地址
+				 * @param {string} param 需要传递的参数
+				 */
+				create_websocket_connect: function (url, param) {
+					var that = this;
+					this.socket = new WebSocket((location.protocol === 'http:' ? 'ws://' : 'wss://') + location.host + url)
+					this.socket.addEventListener('open', function (ev) {
+						if (!this.socketToken) {
+							var _token = document.getElementById('request_token_head').getAttribute('token');
+							this.socketToken = { 'x-http-token': _token }
+						}
+						this.send(JSON.stringify(this.socketToken))
+						this.send(JSON.stringify(param))
+						if (that.open) that.open()
+						that.retry = 0
+					});
+					this.socket.addEventListener('close', function (ev) {
+						if (!that.forceExit) {
+							// console.log(ev.code,that.retry)
+							if (ev.code !== 1000 && that.retry <= 10) {
+								that.socket = that.create_websocket_connect(that.config.route, that.config.param)
+								that.retry++;
+							}
+							if (that.close) that.close(ev)
+						}
+					});
+					this.socket.addEventListener('message', function (ws_event) {
+						var result = ws_event.data
+						if (!result) return;
+						if (that.message) that.message(JSON.parse(result))
+					})
+					return this.socket
+				},
+
+				/**
+				 * @description 监听元素状态，判断是否移除当前的ws连接
+				 *
+				 */
+				monitor_element: function () {
+					var that = this;
+					this.monitor_interval = setInterval(function () {
+						if (!that.el.length) {
+							that.close_connect()
+							clearInterval(that.monitor_interval)
+						}
+					}, that.config.monitorTime || 2000)
+				},
+
+				/**
+				 * @description 断开命令响应和websocket连接
+				 */
+				close_connect: function () {
+					this.forceExit = true
+					this.socket.close()
+				}
+			}
+			return new ReaderCommand(config)
+		},
+	};
+
+	var disk_analysis = new DiskAnalysis({
+		el: '#DiskAnalysis',
+	});
+	// $('#DiskAnalysis').parents('.layui-layer-page').append('<span class="bt-desired ml10" style="background-size:contain;top: 12px; position: absolute;right: 30px;"><a href="javascript:;" class="btlink ml5 npsFeedback" style="margin-left: 10px;">需求反馈</a></span>')
+	// $('#DiskAnalysis').parents('.layui-layer-page').on('click','.bt-desired',function () {
+	//     bt_tools.nps({name:'Disk Analysis',type:25})
+	//     return
+	// })
+</script>
